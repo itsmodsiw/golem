@@ -1,0 +1,2 @@
+# golem
+Litecoin - FPGA integration

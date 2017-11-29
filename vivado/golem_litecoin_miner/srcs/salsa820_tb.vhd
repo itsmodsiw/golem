@@ -89,22 +89,22 @@ begin
     wait;
   end process;
 
-  word_in(0)  <= X"61707865";
-  word_in(1)  <= X"04030201";
-  word_in(2)  <= X"08070605";
-  word_in(3)  <= X"0c0b0a09";
-  word_in(4)  <= X"100f0e0d";
-  word_in(5)  <= X"3320646e";
-  word_in(6)  <= X"01040103";
-  word_in(7)  <= X"06020905";
-  word_in(8)  <= X"00000007";
-  word_in(9)  <= X"00000000";
-  word_in(10) <= X"79622d32";
-  word_in(11) <= X"14131211";
-  word_in(12) <= X"18171615";
-  word_in(13) <= X"1c1b1a19";
-  word_in(14) <= X"201f1e1d";
-  word_in(15) <= X"6b206574";
+  word_in(0)  <= X"219A877E";
+  word_in(1)  <= X"86C93E4F";
+  word_in(2)  <= X"E640A97C";
+  word_in(3)  <= X"268F7141";
+  word_in(4)  <= X"5B55EEBA";
+  word_in(5)  <= X"B5C1618C";
+  word_in(6)  <= X"1146F80D";
+  word_in(7)  <= X"1D3BCD6D";
+  word_in(8)  <= X"19F324EE";
+  word_in(9)  <= X"853D9BDF";
+  word_in(10) <= X"4B1E1214";
+  word_in(11) <= X"32AAC55A";
+  word_in(12) <= X"291D0276";
+  word_in(13) <= X"2948C709";
+  word_in(14) <= X"8DC6EBED";
+  word_in(15) <= X"5EC2B8B8";
 
 
   process
@@ -122,7 +122,7 @@ begin
   -- uut
   salsa820_i : salsa820
     generic map (
-      NUM_ROUNDS => 20
+      NUM_ROUNDS => 8
       )
     port map (
       clk            => clk,
@@ -135,22 +135,22 @@ begin
       );
 
   -- check word out.
-  word_expected(0)  <= X"b9a205a3";
-  word_expected(1)  <= X"0695e150";
-  word_expected(2)  <= X"aa94881a";
-  word_expected(3)  <= X"adb7b12c";
-  word_expected(4)  <= X"798942d4";
-  word_expected(5)  <= X"26107016";
-  word_expected(6)  <= X"64edb1a4";
-  word_expected(7)  <= X"2d27173f";
-  word_expected(8)  <= X"b1c7f1fa";
-  word_expected(9)  <= X"62066edc";
-  word_expected(10) <= X"e035fa23";
-  word_expected(11) <= X"c4496f04";
-  word_expected(12) <= X"2131e6b3";
-  word_expected(13) <= X"810bde28";
-  word_expected(14) <= X"f62cb407";
-  word_expected(15) <= X"6bdede3d";
+  word_expected(0)  <= X"9C851FA4";
+  word_expected(1)  <= X"99CC0866";
+  word_expected(2)  <= X"CBCA813B";
+  word_expected(3)  <= X"05EF0C02";
+  word_expected(4)  <= X"81214B04";
+  word_expected(5)  <= X"7D33FDA2";
+  word_expected(6)  <= X"631C7BFD";
+  word_expected(7)  <= X"292F6896";
+  word_expected(8)  <= X"683139B4";
+  word_expected(9)  <= X"BCE6C9E3";
+  word_expected(10) <= X"B7C56BFE";
+  word_expected(11) <= X"BA966DA0";
+  word_expected(12) <= X"10CC24E4";
+  word_expected(13) <= X"5C74912C";
+  word_expected(14) <= X"3D67AD24";
+  word_expected(15) <= X"818F61C7";
 
   process (clk)
   begin

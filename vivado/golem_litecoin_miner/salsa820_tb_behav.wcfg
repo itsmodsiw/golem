@@ -3,318 +3,158 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="salsa820_tb_behav.wdb" id="1">
+      <db_ref path="block_mix_tb_behav.wdb" id="1">
          <top_modules>
+            <top_module name="block_mix_tb" />
             <top_module name="common" />
-            <top_module name="glbl" />
-            <top_module name="salsa820_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2700200000fs"></ZoomStartTime>
-      <ZoomEndTime time="2915000001fs"></ZoomEndTime>
-      <Cursor1Time time="2760000000fs"></Cursor1Time>
+      <ZoomStartTime time="2476500000fs"></ZoomStartTime>
+      <ZoomEndTime time="3813500001fs"></ZoomEndTime>
+      <Cursor1Time time="2768000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="264"></NameColumnWidth>
-      <ValueColumnWidth column_width="228"></ValueColumnWidth>
+      <ValueColumnWidth column_width="224"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="73" />
-   <wvobject type="logic" fp_name="/salsa820_tb/clk">
+   <WVObjectSize size="34" />
+   <wvobject type="logic" fp_name="/block_mix_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/rst">
+   <wvobject type="logic" fp_name="/block_mix_tb/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/word_in">
-      <obj_property name="ElementShortName">word_in[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_in[15:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/word_in_valid">
-      <obj_property name="ElementShortName">word_in_valid</obj_property>
-      <obj_property name="ObjectShortName">word_in_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/word_in_ready">
-      <obj_property name="ElementShortName">word_in_ready</obj_property>
-      <obj_property name="ObjectShortName">word_in_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/word_out">
-      <obj_property name="ElementShortName">word_out[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_out[15:0][31:0]</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_array_in">
+      <obj_property name="ElementShortName">block_array_in[15:0][15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">block_array_in[15:0][15:0][31:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/word_out_valid">
-      <obj_property name="ElementShortName">word_out_valid</obj_property>
-      <obj_property name="ObjectShortName">word_out_valid</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_array_in_valid">
+      <obj_property name="ElementShortName">block_array_in_valid</obj_property>
+      <obj_property name="ObjectShortName">block_array_in_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/word_expected">
-      <obj_property name="ElementShortName">word_expected[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_expected[15:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_array_in_ready">
+      <obj_property name="ElementShortName">block_array_in_ready</obj_property>
+      <obj_property name="ObjectShortName">block_array_in_ready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/word_error_valid">
-      <obj_property name="ElementShortName">word_error_valid</obj_property>
-      <obj_property name="ObjectShortName">word_error_valid</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_array_out">
+      <obj_property name="ElementShortName">block_array_out[15:0][15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">block_array_out[15:0][15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/word_error">
-      <obj_property name="ElementShortName">word_error[15:0]</obj_property>
-      <obj_property name="ObjectShortName">word_error[15:0]</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_array_out_valid">
+      <obj_property name="ElementShortName">block_array_out_valid</obj_property>
+      <obj_property name="ObjectShortName">block_array_out_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/fail_flag">
+   <wvobject type="array" fp_name="/block_mix_tb/block_array_expected">
+      <obj_property name="ElementShortName">block_array_expected[15:0][15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">block_array_expected[15:0][15:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_array_error_valid">
+      <obj_property name="ElementShortName">block_array_error_valid</obj_property>
+      <obj_property name="ObjectShortName">block_array_error_valid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/block_mix_tb/block_array_error">
+      <obj_property name="ElementShortName">block_array_error[15:0]</obj_property>
+      <obj_property name="ObjectShortName">block_array_error[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/block_mix_tb/fail_flag">
       <obj_property name="ElementShortName">fail_flag</obj_property>
       <obj_property name="ObjectShortName">fail_flag</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/pass_flag">
+   <wvobject type="logic" fp_name="/block_mix_tb/pass_flag">
       <obj_property name="ElementShortName">pass_flag</obj_property>
       <obj_property name="ObjectShortName">pass_flag</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/cycle_counter">
+   <wvobject type="array" fp_name="/block_mix_tb/cycle_counter">
       <obj_property name="ElementShortName">cycle_counter[31:0]</obj_property>
       <obj_property name="ObjectShortName">cycle_counter[31:0]</obj_property>
    </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/CLK_PERIOD">
+   <wvobject type="other" fp_name="/block_mix_tb/CLK_PERIOD">
       <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
       <obj_property name="ObjectShortName">CLK_PERIOD</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/clk">
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/rst">
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/word_in">
-      <obj_property name="ElementShortName">word_in[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_in[15:0][31:0]</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/block_array_in">
+      <obj_property name="ElementShortName">block_array_in[15:0][15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">block_array_in[15:0][15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/word_in_valid">
-      <obj_property name="ElementShortName">word_in_valid</obj_property>
-      <obj_property name="ObjectShortName">word_in_valid</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/block_array_in_valid">
+      <obj_property name="ElementShortName">block_array_in_valid</obj_property>
+      <obj_property name="ObjectShortName">block_array_in_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/word_in_ready">
-      <obj_property name="ElementShortName">word_in_ready</obj_property>
-      <obj_property name="ObjectShortName">word_in_ready</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/block_array_in_ready">
+      <obj_property name="ElementShortName">block_array_in_ready</obj_property>
+      <obj_property name="ObjectShortName">block_array_in_ready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/word_out">
-      <obj_property name="ElementShortName">word_out[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_out[15:0][31:0]</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/block_array_out">
+      <obj_property name="ElementShortName">block_array_out[15:0][15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">block_array_out[15:0][15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/word_out_valid">
-      <obj_property name="ElementShortName">word_out_valid</obj_property>
-      <obj_property name="ObjectShortName">word_out_valid</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/block_array_out_valid">
+      <obj_property name="ElementShortName">block_array_out_valid</obj_property>
+      <obj_property name="ObjectShortName">block_array_out_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/word_in_orig">
-      <obj_property name="ElementShortName">word_in_orig[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_in_orig[15:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/word_final">
-      <obj_property name="ElementShortName">word_final[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_final[15:0][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/word_out_i">
-      <obj_property name="ElementShortName">word_out_i[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">word_out_i[15:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/x_int">
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/x_int">
       <obj_property name="ElementShortName">x_int[15:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">x_int[15:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/x_int_valid">
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/x_int_valid">
       <obj_property name="ElementShortName">x_int_valid</obj_property>
       <obj_property name="ObjectShortName">x_int_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/x_int_add">
-      <obj_property name="ElementShortName">x_int_add[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">x_int_add[15:0][31:0]</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/b_int">
+      <obj_property name="ElementShortName">b_int[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_int[15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/x_int_add_valid">
-      <obj_property name="ElementShortName">x_int_add_valid</obj_property>
-      <obj_property name="ObjectShortName">x_int_add_valid</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/b_out">
+      <obj_property name="ElementShortName">b_out[15:0][15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_out[15:0][15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/x_int_rot">
-      <obj_property name="ElementShortName">x_int_rot[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">x_int_rot[15:0][31:0]</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/b_out_valid">
+      <obj_property name="ElementShortName">b_out_valid</obj_property>
+      <obj_property name="ObjectShortName">b_out_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/x_int_rot_valid">
-      <obj_property name="ElementShortName">x_int_rot_valid</obj_property>
-      <obj_property name="ObjectShortName">x_int_rot_valid</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/t_int">
+      <obj_property name="ElementShortName">t_int[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">t_int[15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/x_int_new">
-      <obj_property name="ElementShortName">x_int_new[15:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">x_int_new[15:0][31:0]</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/t_int_valid">
+      <obj_property name="ElementShortName">t_int_valid</obj_property>
+      <obj_property name="ObjectShortName">t_int_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/x_int_new_valid">
-      <obj_property name="ElementShortName">x_int_new_valid</obj_property>
-      <obj_property name="ObjectShortName">x_int_new_valid</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/salsa_ready">
+      <obj_property name="ElementShortName">salsa_ready</obj_property>
+      <obj_property name="ObjectShortName">salsa_ready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_1">
-      <obj_property name="ElementShortName">add_stage_1</obj_property>
-      <obj_property name="ObjectShortName">add_stage_1</obj_property>
+   <wvobject type="logic" fp_name="/block_mix_tb/block_mix_i/salsa_out_valid">
+      <obj_property name="ElementShortName">salsa_out_valid</obj_property>
+      <obj_property name="ObjectShortName">salsa_out_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_2">
-      <obj_property name="ElementShortName">add_stage_2</obj_property>
-      <obj_property name="ObjectShortName">add_stage_2</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/salsa_out">
+      <obj_property name="ElementShortName">salsa_out[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">salsa_out[15:0][31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_3">
-      <obj_property name="ElementShortName">add_stage_3</obj_property>
-      <obj_property name="ObjectShortName">add_stage_3</obj_property>
+   <wvobject type="array" fp_name="/block_mix_tb/block_mix_i/block_counter">
+      <obj_property name="ElementShortName">block_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">block_counter[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_4">
-      <obj_property name="ElementShortName">add_stage_4</obj_property>
-      <obj_property name="ObjectShortName">add_stage_4</obj_property>
+   <wvobject type="other" fp_name="/block_mix_tb/block_mix_i/BLOCK_SIZE">
+      <obj_property name="ElementShortName">BLOCK_SIZE</obj_property>
+      <obj_property name="ObjectShortName">BLOCK_SIZE</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_1_done">
-      <obj_property name="ElementShortName">add_stage_1_done</obj_property>
-      <obj_property name="ObjectShortName">add_stage_1_done</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_2_done">
-      <obj_property name="ElementShortName">add_stage_2_done</obj_property>
-      <obj_property name="ObjectShortName">add_stage_2_done</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_3_done">
-      <obj_property name="ElementShortName">add_stage_3_done</obj_property>
-      <obj_property name="ObjectShortName">add_stage_3_done</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/add_stage_4_done">
-      <obj_property name="ElementShortName">add_stage_4_done</obj_property>
-      <obj_property name="ObjectShortName">add_stage_4_done</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/salsa_busy">
-      <obj_property name="ElementShortName">salsa_busy</obj_property>
-      <obj_property name="ObjectShortName">salsa_busy</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/salsa820_tb/salsa820_i/salsa_done">
-      <obj_property name="ElementShortName">salsa_done</obj_property>
-      <obj_property name="ObjectShortName">salsa_done</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/A_A">
-      <obj_property name="ElementShortName">A_A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A_A[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/A_B">
-      <obj_property name="ElementShortName">A_B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A_B[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/A_S">
-      <obj_property name="ElementShortName">A_S[31:0]</obj_property>
-      <obj_property name="ObjectShortName">A_S[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/B_A">
-      <obj_property name="ElementShortName">B_A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B_A[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/B_B">
-      <obj_property name="ElementShortName">B_B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B_B[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/B_S">
-      <obj_property name="ElementShortName">B_S[31:0]</obj_property>
-      <obj_property name="ObjectShortName">B_S[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C_A">
-      <obj_property name="ElementShortName">C_A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_A[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C_B">
-      <obj_property name="ElementShortName">C_B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_B[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C_S">
-      <obj_property name="ElementShortName">C_S[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C_S[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/D_A">
-      <obj_property name="ElementShortName">D_A[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D_A[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/D_B">
-      <obj_property name="ElementShortName">D_B[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D_B[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/D_S">
-      <obj_property name="ElementShortName">D_S[31:0]</obj_property>
-      <obj_property name="ObjectShortName">D_S[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/qcycle_counter">
-      <obj_property name="ElementShortName">qcycle_counter[7:0]</obj_property>
-      <obj_property name="ObjectShortName">qcycle_counter[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/NUM_ROUNDS">
-      <obj_property name="ElementShortName">NUM_ROUNDS</obj_property>
-      <obj_property name="ObjectShortName">NUM_ROUNDS</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/QCYCLE_COUNTER_MAX">
-      <obj_property name="ElementShortName">QCYCLE_COUNTER_MAX[7:0]</obj_property>
-      <obj_property name="ObjectShortName">QCYCLE_COUNTER_MAX[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C1">
-      <obj_property name="ElementShortName">C1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C1[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C2">
-      <obj_property name="ElementShortName">C2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C2[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C3">
-      <obj_property name="ElementShortName">C3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C3[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/salsa820_tb/salsa820_i/C4">
-      <obj_property name="ElementShortName">C4[31:0]</obj_property>
-      <obj_property name="ObjectShortName">C4[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/A_y">
-      <obj_property name="ElementShortName">A_y</obj_property>
-      <obj_property name="ObjectShortName">A_y</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/A_x1">
-      <obj_property name="ElementShortName">A_x1</obj_property>
-      <obj_property name="ObjectShortName">A_x1</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/A_x2">
-      <obj_property name="ElementShortName">A_x2</obj_property>
-      <obj_property name="ObjectShortName">A_x2</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/B_y">
-      <obj_property name="ElementShortName">B_y</obj_property>
-      <obj_property name="ObjectShortName">B_y</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/B_x1">
-      <obj_property name="ElementShortName">B_x1</obj_property>
-      <obj_property name="ObjectShortName">B_x1</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/B_x2">
-      <obj_property name="ElementShortName">B_x2</obj_property>
-      <obj_property name="ObjectShortName">B_x2</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/C_y">
-      <obj_property name="ElementShortName">C_y</obj_property>
-      <obj_property name="ObjectShortName">C_y</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/C_x1">
-      <obj_property name="ElementShortName">C_x1</obj_property>
-      <obj_property name="ObjectShortName">C_x1</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/C_x2">
-      <obj_property name="ElementShortName">C_x2</obj_property>
-      <obj_property name="ObjectShortName">C_x2</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/D_y">
-      <obj_property name="ElementShortName">D_y</obj_property>
-      <obj_property name="ObjectShortName">D_y</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/D_x1">
-      <obj_property name="ElementShortName">D_x1</obj_property>
-      <obj_property name="ObjectShortName">D_x1</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/salsa820_tb/salsa820_i/D_x2">
-      <obj_property name="ElementShortName">D_x2</obj_property>
-      <obj_property name="ObjectShortName">D_x2</obj_property>
+   <wvobject type="other" fp_name="/block_mix_tb/block_mix_i/BLOCK_SIZE_LOG2">
+      <obj_property name="ElementShortName">BLOCK_SIZE_LOG2</obj_property>
+      <obj_property name="ObjectShortName">BLOCK_SIZE_LOG2</obj_property>
    </wvobject>
 </wave_config>

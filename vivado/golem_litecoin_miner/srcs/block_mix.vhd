@@ -39,21 +39,14 @@ entity block_mix is
     block_array_in_ready : out std_logic;
 
     block_array_out       : out block_array;
-    block_array_out_valid : out std_logic);
+    block_array_out_valid : out std_logic
+
+
+    );
 
 end block_mix;
 
 architecture behavioral of block_mix is
-
-  component block_xor is
-    port (
-
-      word_in_A : in word_array;
-      word_in_B : in word_array;
-
-      word_out : out word_array);
-
-  end component;
 
   component salsa820 is
     generic (
@@ -71,7 +64,6 @@ architecture behavioral of block_mix is
       word_out_valid : out std_logic);
 
   end component;
-
 
   signal x_int       : word_array;
   signal x_int_valid : std_logic;
@@ -157,7 +149,7 @@ begin
 
   end generate b_int_gen;
 
-  t_int <= x_int xor b_int;
+  t_int       <= x_int xor b_int;
   t_int_valid <= x_int_valid;
 
   -- apply salsa to t_int

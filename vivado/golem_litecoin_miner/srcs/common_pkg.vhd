@@ -26,9 +26,14 @@ package common is
   type block_array is array (15 downto 0) of word_array;
 
 
+  -- axi 64b compatible array
+  type axi_array is array (127 downto 0) of std_logic_vector(63 downto 0);
+
   function "xor" (l, r : word_array) return word_array;
   function "xor" (l, r : block_array) return block_array;
 
+  function to_axi_array (arg   : block_array) return axi_array;
+  function to_block_array (arg : axi_array) return block_array;
 
 end common;
 
@@ -70,5 +75,28 @@ package body common is
     end if;
     return result;
   end "xor";
+
+  function to_axi_array (arg : block_array) return axi_array is
+    variable result : axi_array;
+  begin
+    for j in arg'range loop
+      for i in (arg(0)'length/2)-1 downto 0 loop
+        result((j*(arg(0)'length/2))+i) := arg(j)((i*2)+1) & arg(j)(i*2);
+      end loop;
+    end loop;
+    return result;
+  end to_axi_array;
+
+  function to_block_array (arg : axi_array) return block_array is
+    variable result : block_array;
+  begin
+    for j in result'range loop
+      for i in (result(0)'length/2)-1 downto 0 loop
+        result(j)(i*2)     := arg((j*(result(0)'length/2))+i)(31 downto 0);
+        result(j)((i*2)+1) := arg((j*(result(0)'length/2))+i)(63 downto 32);
+      end loop;
+    end loop;
+    return result;
+  end to_block_array;
 
 end common;

@@ -34,6 +34,8 @@ entity rom_mix_stage2 is
   port (
     clk : in std_logic;
     rst : in std_logic;
+    busy : out std_logic;
+
 
     block_array_in       : in  block_array;
     block_array_in_valid : in  std_logic;
@@ -63,36 +65,21 @@ entity rom_mix_stage2 is
     m_axi_rresp    : in  std_logic_vector(1 downto 0);
     m_axi_rvalid   : in  std_logic;
 
-    errors : out std_logic_vector(15 downto 0)
+    errors : out std_logic_vector(15 downto 0);
+
+    block_mix_in       : out  block_array;
+    block_mix_in_valid : out  std_logic;
+    block_mix_in_ready : in std_logic;
+
+    block_mix_out       : in block_array;
+    block_mix_out_valid : in std_logic
+
 
     );
 
 end rom_mix_stage2;
 
 architecture behavioral of rom_mix_stage2 is
-
-  component block_mix is
-    generic (
-      BLOCK_SIZE      : integer := 8;   --max 128
-      BLOCK_SIZE_LOG2 : integer := 3;   --max 7
-      NUM_ROUNDS      : integer := 8
-      );
-    port (
-      clk : in std_logic;
-      rst : in std_logic;
-
-      block_array_in       : in  block_array;
-      block_array_in_valid : in  std_logic;
-      block_array_in_ready : out std_logic;
-
-      block_array_out       : out block_array;
-      block_array_out_valid : out std_logic
-
-
-      );
-
-  end component;
-
   component mm_to_block_array is
     generic (
       LENGTH : integer);
@@ -152,6 +139,8 @@ architecture behavioral of rom_mix_stage2 is
 begin
 
   ones <= (others => '1');
+
+  busy <= rom_mix_busy;
 
   -- initialise x_int;
 
@@ -253,23 +242,12 @@ begin
   t_int_valid <= v_int_valid;
 
   -- perform a blockmix on the result
-  block_mix_i : block_mix
-    generic map (
-      BLOCK_SIZE      => BLOCK_SIZE,
-      BLOCK_SIZE_LOG2 => BLOCK_SIZE_LOG2,
-      NUM_ROUNDS      => NUM_ROUNDS)
-    port map (
-      clk                  => clk,
-      rst                  => rst,
-      block_array_in       => t_int,
-      block_array_in_valid => t_int_valid,
-      block_array_in_ready => open,
 
-      block_array_out       => x_int_new,
-      block_array_out_valid => x_int_new_valid
+  block_mix_in <= t_int;
+  block_mix_in_valid <= t_int_valid;
 
-      );
-
+  x_int_new <= block_mix_out;
+  x_int_new_valid <= block_mix_out_valid;
 
   -- drive outputs
   block_array_out       <= x_int;

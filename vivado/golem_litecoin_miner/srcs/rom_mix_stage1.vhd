@@ -34,6 +34,7 @@ entity rom_mix_stage1 is
   port (
     clk : in std_logic;
     rst : in std_logic;
+    busy : out std_logic;
 
     block_array_in       : in  block_array;
     block_array_in_valid : in  std_logic;
@@ -65,35 +66,23 @@ entity rom_mix_stage1 is
     m_axi_bvalid   : in  std_logic;
     m_axi_bready   : out std_logic;
 
-    errors : out std_logic_vector(15 downto 0)
+    errors : out std_logic_vector(15 downto 0);
+
+
+    block_mix_in       : out  block_array;
+    block_mix_in_valid : out  std_logic;
+    block_mix_in_ready : in std_logic;
+
+    block_mix_out       : in block_array;
+    block_mix_out_valid : in std_logic
+
+
 
     );
 
 end rom_mix_stage1;
 
 architecture behavioral of rom_mix_stage1 is
-
-  component block_mix is
-    generic (
-      BLOCK_SIZE      : integer := 8;   --max 128
-      BLOCK_SIZE_LOG2 : integer := 3;   --max 7
-      NUM_ROUNDS      : integer := 8
-      );
-    port (
-      clk : in std_logic;
-      rst : in std_logic;
-
-      block_array_in       : in  block_array;
-      block_array_in_valid : in  std_logic;
-      block_array_in_ready : out std_logic;
-
-      block_array_out       : out block_array;
-      block_array_out_valid : out std_logic
-
-
-      );
-
-  end component;
 
   component block_array_to_mm is
     generic (
@@ -149,6 +138,8 @@ begin
 
   ones <= (others => '1');
 
+  busy <= rom_mix_busy;
+
   -- initialise x_int;
 
   process (clk)
@@ -180,15 +171,15 @@ begin
 
         -- perform another round
         if (x_int_new_valid = '1') then
-          x_int       <= x_int_new;
+          x_int <= x_int_new;
 
           if (n_counter(N_DIFFICULTY_LOG2-1 downto 0) = ones(N_DIFFICULTY_LOG2-1 downto 0)) then
-            n_counter <= (others => '0');
+            n_counter    <= (others => '0');
             -- done
             rom_mix_done <= '1';
 
           else
-            n_counter <= n_counter + "1";
+            n_counter   <= n_counter + "1";
             x_int_valid <= '1';
 
           end if;
@@ -244,25 +235,15 @@ begin
 
   -- at the same time, also perform a blockmix
   -- the blockmix should take longer than the mm write so can be done in parallel.
-  block_mix_1 : block_mix
-    generic map (
-      BLOCK_SIZE      => BLOCK_SIZE,
-      BLOCK_SIZE_LOG2 => BLOCK_SIZE_LOG2,
-      NUM_ROUNDS      => NUM_ROUNDS)
-    port map (
-      clk                  => clk,
-      rst                  => rst,
-      block_array_in       => x_int,
-      block_array_in_valid => x_int_valid,
-      block_array_in_ready => open,
+  block_mix_in <= x_int;
+  block_mix_in_valid <= x_int_valid;
 
-      block_array_out       => x_int_new,
-      block_array_out_valid => x_int_new_valid
+  x_int_new <= block_mix_out;
+  x_int_new_valid <= block_mix_out_valid;
 
-      );
 
   -- drive outputs
-  block_array_out <= x_int;
+  block_array_out       <= x_int;
   block_array_out_valid <= rom_mix_done;
 
 

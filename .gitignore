@@ -27,6 +27,7 @@
 !*.cpp
 !*.c
 !*.inc
+!*.coe
 
 # ...even if they are in subdirectories
 !*/

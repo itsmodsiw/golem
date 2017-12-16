@@ -95,6 +95,7 @@ architecture behavioral of sha256 is
   signal h_reset : h_array;
   signal h_start : h_array;
 
+  signal h_start_valid : std_logic;
   signal h_new_valid : std_logic;
 
   signal add_valid   : std_logic;
@@ -232,6 +233,8 @@ architecture behavioral of sha256 is
   signal add_done  : std_logic;
   signal idle_done : std_logic;
 
+  signal add_counter_busy : std_logic;
+
   signal error_i : std_logic_vector(3 downto 0);
   signal error_l : std_logic_vector(3 downto 0);
 
@@ -280,7 +283,7 @@ begin
 
   -- ADD:
   -- 1) iteration is the last one
-  add_done <= '1' when add_counter = 7 else '0';
+  add_done <= '1' when h_start_valid = '1' else '0';
 
   -- IDLE:
   -- 1) input message is valid
@@ -358,6 +361,8 @@ begin
         add_counter   <= (others => '0');
         add_counter_z <= (others => '0');
 
+        add_counter_busy <= '0';
+
       else
         add_counter_z <= add_counter;
 
@@ -372,6 +377,7 @@ begin
         elsif (state = SHA and state_next = ADD) then
           j_counter     <= (others => '0');
           state_counter <= (others => '0');
+          add_counter_busy <= '1';
 
           -- update internal h
           h_int <= h_new;
@@ -397,14 +403,20 @@ begin
         -- prepare for next block of sha
         elsif (state = ADD and state_next = SHA) then
           -- reset h
-          h_int       <= h_reset;
+          h_int       <= h_start;
           add_counter <= (others => '0');
 
 
         elsif (state = ADD and state_next = ADD) then
           -- only incrememnt counter if ready
           if (hash_out_ready = '1') then
-            add_counter <= add_counter + 1;
+            if (add_counter_busy = '1' and add_counter < 7) then
+              add_counter <= add_counter + 1;
+            else
+              add_counter      <= (others => '0');
+              add_counter_busy <= '0';
+
+            end if;
           end if;
 
         end if;
@@ -870,7 +882,7 @@ begin
 
         end if;
 
-        if (add_valid_z = '1' and last_message = '1' and add_last_z = '1') then
+        if (h_start_valid = '1' and last_message = '1') then
           last_message <= '0';
 
         end if;
@@ -897,12 +909,12 @@ begin
   add_inputs : for i in 0 to 7 generate
 
     w_add4_A <= h_int(i)   when add_counter = i else (others => 'Z');
-    w_add4_B <= h_reset(i) when add_counter = i else (others => 'Z');
+    w_add4_B <= h_start(i) when add_counter = i else (others => 'Z');
 
   end generate add_inputs;
 
-  add_valid <= '1' when state = ADD                     else '0';
-  add_last  <= '1' when state = ADD and add_counter = 7 else '0';
+  add_valid <= '1' when state = ADD and add_counter_busy = '1'                     else '0';
+  add_last  <= '1' when state = ADD and add_counter_busy = '1' and add_counter = 7 else '0';
 
   -- 1cc latency through the adder, so delay output signals
   process (clk)
@@ -927,8 +939,10 @@ begin
     if (rising_edge(clk)) then
       if (rst = '1') then
         h_start <= h_reset;
+        h_start_valid <= '0';
 
       else
+        h_start_valid <= add_last_z;
 
         for i in 7 downto 0 loop
           if (add_counter_z = i and add_valid_z = '1') then

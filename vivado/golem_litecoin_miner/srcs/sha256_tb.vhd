@@ -29,29 +29,32 @@ end sha256_tb;
 
 architecture behavioral of sha256_tb is
 
-  component sha256 is
+  component sha256_wrapper is
     port (
-      clk              : in  std_logic;
-      rst              : in  std_logic;
-      message_in       : in  std_logic_vector(31 downto 0);
-      message_in_valid : in  std_logic;
-      message_in_last  : in  std_logic;
-      message_in_ready : out std_logic;
-      hash_out         : out std_logic_vector(31 downto 0);
-      hash_out_valid   : out std_logic;
-      hash_out_last    : out std_logic;
-      hash_out_ready   : in  std_logic;
-      error_out        : out std_logic_vector(3 downto 0));
-  end component sha256;
-
+      clk                     : in  std_logic;
+      rst                     : in  std_logic;
+      message_in_length       : in  std_logic_vector(63 downto 0);
+      message_in_length_valid : in  std_logic;
+      message_in              : in  std_logic_vector(31 downto 0);
+      message_in_valid        : in  std_logic;
+      message_in_last         : in  std_logic;
+      message_in_ready        : out std_logic;
+      hash_out_length         : out std_logic_vector(63 downto 0);
+      hash_out_length_valid   : out std_logic;
+      hash_out                : out std_logic_vector(31 downto 0);
+      hash_out_valid          : out std_logic;
+      hash_out_last           : out std_logic;
+      hash_out_ready          : in  std_logic;
+      error_out               : out std_logic_vector(3 downto 0));
+  end component sha256_wrapper;
 
   signal clk  : std_logic := '1';
   signal rst  : std_logic := '1';
   signal rstn : std_logic := '0';
 
-  constant CLK_PERIOD        : time                  := 8 ns;
-  constant MESSAGE_IN_LENGTH : integer               := 32;
-  constant START_COUNT       : unsigned(31 downto 0) := to_unsigned(100, 32);
+  constant CLK_PERIOD          : time                  := 8 ns;
+  constant C_MESSAGE_IN_LENGTH : integer               := 14;
+  constant START_COUNT         : unsigned(31 downto 0) := to_unsigned(100, 32);
 
   signal message_in_counter  : unsigned(31 downto 0);
   signal message_out_counter : unsigned(31 downto 0);
@@ -61,22 +64,25 @@ architecture behavioral of sha256_tb is
 
 
 
-  type input_array is array (MESSAGE_IN_LENGTH-1 downto 0) of std_logic_vector(31 downto 0);
+  type input_array is array (C_MESSAGE_IN_LENGTH-1 downto 0) of std_logic_vector(31 downto 0);
   type output_array is array (7 downto 0) of std_logic_vector(31 downto 0);
 
   signal message_in_array : input_array;
   signal hash_expected    : output_array;
 
-
-  signal message_in       : std_logic_vector(31 downto 0);
-  signal message_in_valid : std_logic;
-  signal message_in_last  : std_logic;
-  signal message_in_ready : std_logic;
-  signal hash_out         : std_logic_vector(31 downto 0);
-  signal hash_out_valid   : std_logic;
-  signal hash_out_last    : std_logic;
-  signal hash_out_ready   : std_logic;
-  signal error_out        : std_logic_vector(3 downto 0);
+  signal message_in_length       : std_logic_vector(63 downto 0);
+  signal message_in_length_valid : std_logic;
+  signal message_in              : std_logic_vector(31 downto 0);
+  signal message_in_valid        : std_logic;
+  signal message_in_last         : std_logic;
+  signal message_in_ready        : std_logic;
+  signal hash_out_length         : std_logic_vector(63 downto 0);
+  signal hash_out_length_valid   : std_logic;
+  signal hash_out                : std_logic_vector(31 downto 0);
+  signal hash_out_valid          : std_logic;
+  signal hash_out_last           : std_logic;
+  signal hash_out_ready          : std_logic;
+  signal error_out               : std_logic_vector(3 downto 0);
 
   signal hash_error       : std_logic_vector(7 downto 0);
   signal hash_error_valid : std_logic;
@@ -107,25 +113,12 @@ begin
 
   rstn <= not rst;
 
-  -- example length 16
-  -- message_in_array(0)  <= X"61626380";
-  -- message_in_array(1)  <= X"00000000";
-  -- message_in_array(2)  <= X"00000000";
-  -- message_in_array(3)  <= X"00000000";
-  -- message_in_array(4)  <= X"00000000";
-  -- message_in_array(5)  <= X"00000000";
-  -- message_in_array(6)  <= X"00000000";
-  -- message_in_array(7)  <= X"00000000";
-  -- message_in_array(8)  <= X"00000000";
-  -- message_in_array(9)  <= X"00000000";
-  -- message_in_array(10) <= X"00000000";
-  -- message_in_array(11) <= X"00000000";
-  -- message_in_array(12) <= X"00000000";
-  -- message_in_array(13) <= X"00000000";
-  -- message_in_array(14) <= X"00000000";
-  -- message_in_array(15) <= X"00000018";
+  message_in_length <= std_logic_vector(to_unsigned(56, 64));
 
-  -- example length 32
+  -- example length 3
+  --message_in_array(0)  <= X"61626380";
+
+  -- example length 56
 
   message_in_array(0)  <= X"61626364";
   message_in_array(1)  <= X"62636465";
@@ -141,24 +134,6 @@ begin
   message_in_array(11) <= X"6c6d6e6f";
   message_in_array(12) <= X"6d6e6f70";
   message_in_array(13) <= X"6e6f7071";
-  message_in_array(14) <= X"80000000";
-  message_in_array(15) <= X"00000000";
-  message_in_array(16) <= X"00000000";
-  message_in_array(17) <= X"00000000";
-  message_in_array(18) <= X"00000000";
-  message_in_array(19) <= X"00000000";
-  message_in_array(20) <= X"00000000";
-  message_in_array(21) <= X"00000000";
-  message_in_array(22) <= X"00000000";
-  message_in_array(23) <= X"00000000";
-  message_in_array(24) <= X"00000000";
-  message_in_array(25) <= X"00000000";
-  message_in_array(26) <= X"00000000";
-  message_in_array(27) <= X"00000000";
-  message_in_array(28) <= X"00000000";
-  message_in_array(29) <= X"00000000";
-  message_in_array(30) <= X"00000000";
-  message_in_array(31) <= X"000001c0";
 
   process (clk)
   begin
@@ -167,18 +142,26 @@ begin
         message_in_counter <= (others => '0');
         start_counter      <= (others => '0');
 
-        message_in_busy <= '0';
+        message_in_busy         <= '0';
+        message_in_length_valid <= '0';
 
       else
-        if (start_counter < START_COUNT) then
-          start_counter <= start_counter + 1;
-        else
-          message_in_busy <= '1';
+        message_in_length_valid <= '0';
 
+        if (message_in_busy = '0') then
+          if (start_counter < START_COUNT) then
+            start_counter <= start_counter + 1;
+          else
+            message_in_busy         <= '1';
+            message_in_length_valid <= '1';
+            start_counter           <= (others => '0');
+
+          end if;
         end if;
 
+
         if (message_in_busy = '1' and message_in_ready = '1') then
-          if (message_in_counter < to_unsigned(MESSAGE_IN_LENGTH-1, 32)) then
+          if (message_in_counter < to_unsigned(C_MESSAGE_IN_LENGTH-1, 32)) then
             message_in_counter <= message_in_counter + 1;
 
           else
@@ -194,26 +177,30 @@ begin
   end process;
 
   message_in_valid <= message_in_busy;
-  message_in_last  <= '1' when message_in_counter = to_unsigned(MESSAGE_IN_LENGTH-1, 32) else '0';
+  message_in_last  <= '1' when message_in_counter = to_unsigned(C_MESSAGE_IN_LENGTH-1, 32) else '0';
 
-  message_in_gen : for i in 0 to MESSAGE_IN_LENGTH-1 generate
+  message_in_gen : for i in 0 to C_MESSAGE_IN_LENGTH-1 generate
     message_in <= message_in_array(i) when (message_in_counter = i) else (others => 'Z');
 
   end generate message_in_gen;
 
-  sha256_1 : sha256
+  sha256_wrapper_1 : sha256_wrapper
     port map (
-      clk              => clk,
-      rst              => rst,
-      message_in       => message_in,
-      message_in_valid => message_in_valid,
-      message_in_last  => message_in_last,
-      message_in_ready => message_in_ready,
-      hash_out         => hash_out,
-      hash_out_valid   => hash_out_valid,
-      hash_out_last    => hash_out_last,
-      hash_out_ready   => hash_out_ready,
-      error_out        => error_out);
+      clk                     => clk,
+      rst                     => rst,
+      message_in_length       => message_in_length,
+      message_in_length_valid => message_in_length_valid,
+      message_in              => message_in,
+      message_in_valid        => message_in_valid,
+      message_in_last         => message_in_last,
+      message_in_ready        => message_in_ready,
+      hash_out_length         => hash_out_length,
+      hash_out_length_valid   => hash_out_length_valid,
+      hash_out                => hash_out,
+      hash_out_valid          => hash_out_valid,
+      hash_out_last           => hash_out_last,
+      hash_out_ready          => hash_out_ready,
+      error_out               => error_out);
 
 
   -- check block_array out.
@@ -280,7 +267,7 @@ begin
     end if;
   end process;
 
-  pass_flag <= '1' when hash_error = X"00" and hash_error_valid = '1' else '0';
+  pass_flag <= '1' when hash_error = X"00" and hash_error_valid = '1'  else '0';
   fail_flag <= '1' when hash_error /= X"00" and hash_error_valid = '1' else '0';
 
 

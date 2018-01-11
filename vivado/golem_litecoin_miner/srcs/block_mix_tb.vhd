@@ -65,7 +65,7 @@ architecture behavioral of block_mix_tb is
 
   type block_error is array (1 downto 0) of std_logic_vector(15 downto 0);
 
-  signal block_array_error       : block_error;
+  signal block_array_error : block_error;
 
   signal fail_flag : std_logic;
   signal pass_flag : std_logic;
@@ -94,40 +94,38 @@ begin
     wait;
   end process;
 
-  block_array_in(0)(0)  <= X"650BCEF7";
-  block_array_in(0)(1)  <= X"A4722D3D";
-  block_array_in(0)(2)  <= X"ABF58C10";
-  block_array_in(0)(3)  <= X"DDFF12E9";
-  block_array_in(0)(4)  <= X"DB167677";
-  block_array_in(0)(5)  <= X"0EA727BB";
-  block_array_in(0)(6)  <= X"AEF30482";
-  block_array_in(0)(7)  <= X"AD6F0F2D";
-  block_array_in(0)(8)  <= X"488FF689";
-  block_array_in(0)(9)  <= X"7BE8D111";
-  block_array_in(0)(10) <= X"40D73BCC";
-  block_array_in(0)(11) <= X"29FD9F0A";
-  block_array_in(0)(12) <= X"84014F09";
-  block_array_in(0)(13) <= X"F3749563";
-  block_array_in(0)(14) <= X"31A1E59A";
-  block_array_in(0)(15) <= X"D7BC1752";
-
-
-  block_array_in(1)(0)  <= X"44914989";
-  block_array_in(1)(1)  <= X"22BB1372";
-  block_array_in(1)(2)  <= X"4DB5256C";
-  block_array_in(1)(3)  <= X"FB7063A8";
-  block_array_in(1)(4)  <= X"804398CD";
-  block_array_in(1)(5)  <= X"BB664637";
-  block_array_in(1)(6)  <= X"BFB5FC8F";
-  block_array_in(1)(7)  <= X"B054C240";
-  block_array_in(1)(8)  <= X"517CD267";
-  block_array_in(1)(9)  <= X"FED54ACE";
-  block_array_in(1)(10) <= X"0BC929D8";
-  block_array_in(1)(11) <= X"1B575A50";
-  block_array_in(1)(12) <= X"AD1C4D7F";
-  block_array_in(1)(13) <= X"DA3C526A";
-  block_array_in(1)(14) <= X"BC670E77";
-  block_array_in(1)(15) <= X"897EAFEA";
+  block_array_in(0)  <= X"650BCEF7";
+  block_array_in(1)  <= X"A4722D3D";
+  block_array_in(2)  <= X"ABF58C10";
+  block_array_in(3)  <= X"DDFF12E9";
+  block_array_in(4)  <= X"DB167677";
+  block_array_in(5)  <= X"0EA727BB";
+  block_array_in(6)  <= X"AEF30482";
+  block_array_in(7)  <= X"AD6F0F2D";
+  block_array_in(8)  <= X"488FF689";
+  block_array_in(9)  <= X"7BE8D111";
+  block_array_in(10) <= X"40D73BCC";
+  block_array_in(11) <= X"29FD9F0A";
+  block_array_in(12) <= X"84014F09";
+  block_array_in(13) <= X"F3749563";
+  block_array_in(14) <= X"31A1E59A";
+  block_array_in(15) <= X"D7BC1752";
+  block_array_in(16) <= X"44914989";
+  block_array_in(17) <= X"22BB1372";
+  block_array_in(18) <= X"4DB5256C";
+  block_array_in(19) <= X"FB7063A8";
+  block_array_in(20) <= X"804398CD";
+  block_array_in(21) <= X"BB664637";
+  block_array_in(22) <= X"BFB5FC8F";
+  block_array_in(23) <= X"B054C240";
+  block_array_in(24) <= X"517CD267";
+  block_array_in(25) <= X"FED54ACE";
+  block_array_in(26) <= X"0BC929D8";
+  block_array_in(27) <= X"1B575A50";
+  block_array_in(28) <= X"AD1C4D7F";
+  block_array_in(29) <= X"DA3C526A";
+  block_array_in(30) <= X"BC670E77";
+  block_array_in(31) <= X"897EAFEA";
 
 
   process
@@ -162,39 +160,38 @@ begin
       );
 
   -- check block_array out.
-  block_array_expected(0)(0)  <= X"9C851FA4";
-  block_array_expected(0)(1)  <= X"99CC0866";
-  block_array_expected(0)(2)  <= X"CBCA813B";
-  block_array_expected(0)(3)  <= X"05EF0C02";
-  block_array_expected(0)(4)  <= X"81214B04";
-  block_array_expected(0)(5)  <= X"7D33FDA2";
-  block_array_expected(0)(6)  <= X"631C7BFD";
-  block_array_expected(0)(7)  <= X"292F6896";
-  block_array_expected(0)(8)  <= X"683139B4";
-  block_array_expected(0)(9)  <= X"BCE6C9E3";
-  block_array_expected(0)(10) <= X"B7C56BFE";
-  block_array_expected(0)(11) <= X"BA966DA0";
-  block_array_expected(0)(12) <= X"10CC24E4";
-  block_array_expected(0)(13) <= X"5C74912C";
-  block_array_expected(0)(14) <= X"3D67AD24";
-  block_array_expected(0)(15) <= X"818F61C7";
-
-  block_array_expected(1)(0)  <= X"75C9ED20";
-  block_array_expected(1)(1)  <= X"A8813832";
-  block_array_expected(1)(2)  <= X"4CF64005";
-  block_array_expected(1)(3)  <= X"3CCD2D16";
-  block_array_expected(1)(4)  <= X"FE7C0721";
-  block_array_expected(1)(5)  <= X"E25F8D5F";
-  block_array_expected(1)(6)  <= X"8F16A4B1";
-  block_array_expected(1)(7)  <= X"B7783695";
-  block_array_expected(1)(8)  <= X"803D3B7D";
-  block_array_expected(1)(9)  <= X"ABE4603B";
-  block_array_expected(1)(10) <= X"E5960992";
-  block_array_expected(1)(11) <= X"B6534D9B";
-  block_array_expected(1)(12) <= X"58222A5D";
-  block_array_expected(1)(13) <= X"F5EDD577";
-  block_array_expected(1)(14) <= X"F1B92C84";
-  block_array_expected(1)(15) <= X"25E4EF4E";
+  block_array_expected(0)  <= X"9C851FA4";
+  block_array_expected(1)  <= X"99CC0866";
+  block_array_expected(2)  <= X"CBCA813B";
+  block_array_expected(3)  <= X"05EF0C02";
+  block_array_expected(4)  <= X"81214B04";
+  block_array_expected(5)  <= X"7D33FDA2";
+  block_array_expected(6)  <= X"631C7BFD";
+  block_array_expected(7)  <= X"292F6896";
+  block_array_expected(8)  <= X"683139B4";
+  block_array_expected(9)  <= X"BCE6C9E3";
+  block_array_expected(10) <= X"B7C56BFE";
+  block_array_expected(11) <= X"BA966DA0";
+  block_array_expected(12) <= X"10CC24E4";
+  block_array_expected(13) <= X"5C74912C";
+  block_array_expected(14) <= X"3D67AD24";
+  block_array_expected(15) <= X"818F61C7";
+  block_array_expected(16) <= X"75C9ED20";
+  block_array_expected(17) <= X"A8813832";
+  block_array_expected(18) <= X"4CF64005";
+  block_array_expected(19) <= X"3CCD2D16";
+  block_array_expected(20) <= X"FE7C0721";
+  block_array_expected(21) <= X"E25F8D5F";
+  block_array_expected(22) <= X"8F16A4B1";
+  block_array_expected(23) <= X"B7783695";
+  block_array_expected(24) <= X"803D3B7D";
+  block_array_expected(25) <= X"ABE4603B";
+  block_array_expected(26) <= X"E5960992";
+  block_array_expected(27) <= X"B6534D9B";
+  block_array_expected(28) <= X"58222A5D";
+  block_array_expected(29) <= X"F5EDD577";
+  block_array_expected(30) <= X"F1B92C84";
+  block_array_expected(31) <= X"25E4EF4E";
 
   process (clk)
   begin
@@ -219,7 +216,7 @@ begin
     end if;
   end process;
 
-  pass_flag <= '1' when block_array_error(0) = X"0000" and block_array_error(1) = X"0000" and block_array_error_valid = '1'  else '0';
+  pass_flag <= '1' when block_array_error(0) = X"0000" and block_array_error(1) = X"0000" and block_array_error_valid = '1'    else '0';
   fail_flag <= '1' when (block_array_error(0) /= X"0000" or block_array_error(1) /= X"0000") and block_array_error_valid = '1' else '0';
 
 end behavioral;

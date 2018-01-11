@@ -25,11 +25,6 @@ use work.common.all;
 
 
 entity block_mix is
-  generic (
-    BLOCK_SIZE      : integer := 8;     --max 128
-    BLOCK_SIZE_LOG2 : integer := 3;     --max 7
-    NUM_ROUNDS      : integer := 8
-    );
   port (
     clk : in std_logic;
     rst : in std_logic;
@@ -47,6 +42,9 @@ entity block_mix is
 end block_mix;
 
 architecture behavioral of block_mix is
+
+  constant C_BLOCK_SIZE : integer := 1;
+  constant C_NUM_ROUNDS : integer := 8;
 
   component salsa820 is
     generic (
@@ -80,6 +78,7 @@ architecture behavioral of block_mix is
   signal salsa_ready     : std_logic;
   signal salsa_out_valid : std_logic;
   signal salsa_out       : word_array;
+  signal salsa_out_block : block_array;
 
   signal block_mix_busy : std_logic;
   signal block_mix_done : std_logic;
@@ -109,7 +108,7 @@ begin
 
         if (block_array_in_valid = '1') then
           -- x_int becomes last block
-          x_int       <= block_array_in(BLOCK_SIZE*2 - 1);
+          x_int       <= to_word_array(block_array_in, 1);
           x_int_valid <= '1';
 
           block_counter <= (others => '0');
@@ -119,7 +118,7 @@ begin
         end if;
 
         if (salsa_out_valid = '1') then
-          if (block_counter < BLOCK_SIZE*2-1) then
+          if (block_counter < C_BLOCK_SIZE*2-1) then
             block_counter <= block_counter + 1;
 
             -- x_int becomes last salsa if we're not done
@@ -144,8 +143,8 @@ begin
     end if;
   end process;
 
-  b_int_gen : for i in BLOCK_SIZE*2-1 downto 0 generate
-    b_int <= block_array_in(i) when (to_integer(block_counter) = i) else (others => (others => 'Z'));
+  b_int_gen : for i in C_BLOCK_SIZE*2-1 downto 0 generate
+    b_int <= to_word_array(block_array_in, i) when (to_integer(block_counter) = i) else (others => (others => 'Z'));
 
   end generate b_int_gen;
 
@@ -156,7 +155,7 @@ begin
 
   salsa820_i : salsa820
     generic map (
-      NUM_ROUNDS => NUM_ROUNDS
+      NUM_ROUNDS => C_NUM_ROUNDS
       )
     port map (
       clk => clk,
@@ -172,36 +171,28 @@ begin
 
       );
 
+  salsa_out_block <= to_block_array(salsa_out,0);
 
   process (clk)
   begin
     if (rising_edge(clk)) then
       if (rst = '1') then
-        b_out       <= (others => (others => (others => '0')));
+        b_out       <= (others => (others => '0'));
         b_out_valid <= '0';
 
       else
         b_out_valid <= '0';
 
-        for j in BLOCK_SIZE*2-1 downto 0 loop
-          -- output is interleved. Even first, then odd
-          -- (so 0 1 2 3 4 5 6 7 becomes 0 2 4 6 1 3 5 7)
-          -- This is a right rotate operation in binary
-          if ((BLOCK_SIZE_LOG2 > 0) and salsa_out_valid = '1') and (to_integer((block_counter(0) & block_counter(BLOCK_SIZE_LOG2 downto 1))) = j) then
-            -- only works when BLOCK_SIZE_LOG2 >1
-            b_out(j) <= salsa_out;
-
-          end if;
-
-          if (BLOCK_SIZE_LOG2 = 0) and salsa_out_valid = '1' and (to_integer(block_counter) = j) then
-            -- no need to interleve in this case
-            b_out(j) <= salsa_out;
-
+        for j in C_BLOCK_SIZE*2-1 downto 0 loop
+          if salsa_out_valid = '1' and (to_integer(block_counter) = 1) then
+            b_out(31 downto 16) <= salsa_out_block(15 downto 0);
+          elsif salsa_out_valid = '1' and (to_integer(block_counter) = 0) then
+            b_out(15 downto 0) <= salsa_out_block(15 downto 0);
           end if;
         end loop;  -- j
 
         -- result is valid on last loop
-        if (salsa_out_valid = '1') and (to_integer(block_counter) = BLOCK_SIZE*2-1) then
+        if (salsa_out_valid = '1') and (to_integer(block_counter) = C_BLOCK_SIZE*2-1) then
           b_out_valid <= '1';
         end if;
       end if;

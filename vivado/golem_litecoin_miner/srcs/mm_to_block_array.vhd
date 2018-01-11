@@ -52,7 +52,6 @@ entity mm_to_block_array is
     m_axi_arvalid  : out std_logic;
     m_axi_arready  : in  std_logic;
     m_axi_rdata    : in  std_logic_vector(63 downto 0);
-    m_axi_rstrb    : in  std_logic_vector(7 downto 0);
     m_axi_rlast    : in  std_logic;
     m_axi_rready   : out std_logic;
     m_axi_rid      : in  std_logic_vector(5 downto 0);

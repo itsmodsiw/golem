@@ -128,6 +128,7 @@ architecture behavioral of sha256_wrapper is
   signal write_appended_byte : std_logic;
   signal write_data          : std_logic;
   signal write_padding       : std_logic;
+  signal idle                : std_logic;
 
   signal wrapper_busy  : std_logic;
   signal lengths_ready : std_logic;
@@ -143,7 +144,7 @@ architecture behavioral of sha256_wrapper is
 begin
 
   rstn     <= not rst;
-  const_32 <= std_logic_vector(to_unsigned(32,64));
+  const_32 <= std_logic_vector(to_unsigned(32, 64));
 
   sha256_1 : sha256
     port map (
@@ -239,14 +240,22 @@ begin
   begin
     if (rising_edge(clk)) then
       if (rst = '1') then
-        write_counter <= (others => '0');
+        -- all 1s is counter reset value
+        write_counter <= (others => '1');
 
       else
+        -- when data is received, set counter to 0
+        if (message_in_length_valid = '1') then
+          write_counter <= (others => '0');
+
+        end if;
+
         if (message_in_sha256_valid = '1' and message_in_sha256_ready = '1') then
           if (write_counter < (length_total_words_padded-1)) then
             write_counter <= write_counter + 1;
           else
-            write_counter <= (others => '0');
+            -- all 1s is counter reset value
+            write_counter <= (others => '1');
           end if;
         end if;
       end if;
@@ -265,7 +274,9 @@ begin
                 '1' when append_byte_position /= "00" and write_counter < message_length_words-1 else
                 '0';
 
-  write_padding <= '1' when (write_first_length = '0' and write_second_length = '0' and write_appended_byte = '0' and write_data = '0') else '0';
+  idle <= not wrapper_busy;
+
+  write_padding <= '1' when (write_first_length = '0' and write_second_length = '0' and write_appended_byte = '0' and write_data = '0' and idle = '0') else '0';
 
   message_in_sha256 <= message_in when write_data = '1' else
                        append_byte_word    when write_appended_byte = '1' else
@@ -329,7 +340,7 @@ begin
   --  end if;
   --end process;
 
-  message_in_ready <= message_in_sha256_ready when write_data = '1' else '0';
+  message_in_ready <= message_in_sha256_ready when write_data = '1' and wrapper_busy = '1' else '0';
 
   sha256_fifo_1 : sha256_fifo
     port map (

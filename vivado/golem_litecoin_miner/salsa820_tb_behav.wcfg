@@ -3,914 +3,362 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="hmac_sha256_tb_behav.wdb" id="1">
+      <db_ref path="scrypt_wrapper_tb_behav.wdb" id="1">
          <top_modules>
             <top_module name="common" />
             <top_module name="glbl" />
-            <top_module name="hmac_sha256_tb" />
+            <top_module name="scrypt_wrapper_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="50000000001fs"></ZoomEndTime>
-      <Cursor1Time time="15000000000fs"></Cursor1Time>
+      <ZoomEndTime time="5780000000001fs"></ZoomEndTime>
+      <Cursor1Time time="1197664000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="264"></NameColumnWidth>
-      <ValueColumnWidth column_width="180"></ValueColumnWidth>
+      <ValueColumnWidth column_width="144"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="214" />
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/clk">
+   <WVObjectSize size="85" />
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/rst">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/rstn">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/message_in_counter">
-      <obj_property name="ElementShortName">message_in_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_counter[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/key_in_counter">
-      <obj_property name="ElementShortName">key_in_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_counter[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/message_out_counter">
-      <obj_property name="ElementShortName">message_out_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_out_counter[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/start_counter">
-      <obj_property name="ElementShortName">start_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">start_counter[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/message_in_busy">
-      <obj_property name="ElementShortName">message_in_busy</obj_property>
-      <obj_property name="ObjectShortName">message_in_busy</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/key_in_busy">
-      <obj_property name="ElementShortName">key_in_busy</obj_property>
-      <obj_property name="ObjectShortName">key_in_busy</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/message_in_array">
-      <obj_property name="ElementShortName">message_in_array[1:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_array[1:0][31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/key_in_array">
-      <obj_property name="ElementShortName">key_in_array[4:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_array[4:0][31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hash_expected">
-      <obj_property name="ElementShortName">hash_expected[7:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_expected[7:0][31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/message_in_length">
-      <obj_property name="ElementShortName">message_in_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_length[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/message_in_length_valid">
-      <obj_property name="ElementShortName">message_in_length_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/message_in">
-      <obj_property name="ElementShortName">message_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/message_in_valid">
-      <obj_property name="ElementShortName">message_in_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/message_in_last">
-      <obj_property name="ElementShortName">message_in_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/message_in_ready">
-      <obj_property name="ElementShortName">message_in_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/key_in_length">
-      <obj_property name="ElementShortName">key_in_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_length[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/key_in_length_valid">
-      <obj_property name="ElementShortName">key_in_length_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/key_in">
-      <obj_property name="ElementShortName">key_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/key_in_valid">
-      <obj_property name="ElementShortName">key_in_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/key_in_last">
-      <obj_property name="ElementShortName">key_in_last</obj_property>
-      <obj_property name="ObjectShortName">key_in_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/key_in_ready">
-      <obj_property name="ElementShortName">key_in_ready</obj_property>
-      <obj_property name="ObjectShortName">key_in_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hash_out_length">
-      <obj_property name="ElementShortName">hash_out_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hash_out_length_valid">
-      <obj_property name="ElementShortName">hash_out_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hash_out">
-      <obj_property name="ElementShortName">hash_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hash_out_valid">
-      <obj_property name="ElementShortName">hash_out_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hash_out_last">
-      <obj_property name="ElementShortName">hash_out_last</obj_property>
-      <obj_property name="ObjectShortName">hash_out_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hash_out_ready">
-      <obj_property name="ElementShortName">hash_out_ready</obj_property>
-      <obj_property name="ObjectShortName">hash_out_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/error_out">
-      <obj_property name="ElementShortName">error_out[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hash_error">
-      <obj_property name="ElementShortName">hash_error[7:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_error[7:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hash_error_valid">
-      <obj_property name="ElementShortName">hash_error_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_error_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/pass_flag">
-      <obj_property name="ElementShortName">pass_flag</obj_property>
-      <obj_property name="ObjectShortName">pass_flag</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/fail_flag">
-      <obj_property name="ElementShortName">fail_flag</obj_property>
-      <obj_property name="ObjectShortName">fail_flag</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/hmac_sha256_tb/CLK_PERIOD">
-      <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
-      <obj_property name="ObjectShortName">CLK_PERIOD</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/hmac_sha256_tb/C_MESSAGE_IN_LENGTH">
-      <obj_property name="ElementShortName">C_MESSAGE_IN_LENGTH</obj_property>
-      <obj_property name="ObjectShortName">C_MESSAGE_IN_LENGTH</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="other" fp_name="/hmac_sha256_tb/C_KEY_IN_LENGTH">
-      <obj_property name="ElementShortName">C_KEY_IN_LENGTH</obj_property>
-      <obj_property name="ObjectShortName">C_KEY_IN_LENGTH</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/START_COUNT">
-      <obj_property name="ElementShortName">START_COUNT[31:0]</obj_property>
-      <obj_property name="ObjectShortName">START_COUNT[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_length">
-      <obj_property name="ElementShortName">message_in_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_length[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_length_valid">
-      <obj_property name="ElementShortName">message_in_length_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in">
-      <obj_property name="ElementShortName">message_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_valid">
-      <obj_property name="ElementShortName">message_in_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_last">
-      <obj_property name="ElementShortName">message_in_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_ready">
-      <obj_property name="ElementShortName">message_in_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_length">
-      <obj_property name="ElementShortName">hash_out_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_length_valid">
-      <obj_property name="ElementShortName">hash_out_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out">
-      <obj_property name="ElementShortName">hash_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_valid">
-      <obj_property name="ElementShortName">hash_out_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_last">
-      <obj_property name="ElementShortName">hash_out_last</obj_property>
-      <obj_property name="ObjectShortName">hash_out_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_ready">
-      <obj_property name="ElementShortName">hash_out_ready</obj_property>
-      <obj_property name="ObjectShortName">hash_out_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/error_out">
-      <obj_property name="ElementShortName">error_out[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/length_total_bytes">
-      <obj_property name="ElementShortName">length_total_bytes[63:0]</obj_property>
-      <obj_property name="ObjectShortName">length_total_bytes[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/length_total_words_padded">
-      <obj_property name="ElementShortName">length_total_words_padded[61:0]</obj_property>
-      <obj_property name="ObjectShortName">length_total_words_padded[61:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/length_total_blocks">
-      <obj_property name="ElementShortName">length_total_blocks[57:0]</obj_property>
-      <obj_property name="ObjectShortName">length_total_blocks[57:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/append_byte_position">
-      <obj_property name="ElementShortName">append_byte_position[1:0]</obj_property>
-      <obj_property name="ObjectShortName">append_byte_position[1:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/append_byte_word">
-      <obj_property name="ElementShortName">append_byte_word[31:0]</obj_property>
-      <obj_property name="ObjectShortName">append_byte_word[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/append_length_word1">
-      <obj_property name="ElementShortName">append_length_word1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">append_length_word1[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/append_length_word2">
-      <obj_property name="ElementShortName">append_length_word2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">append_length_word2[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/pad_enable">
-      <obj_property name="ElementShortName">pad_enable</obj_property>
-      <obj_property name="ObjectShortName">pad_enable</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/pad_required">
-      <obj_property name="ElementShortName">pad_required</obj_property>
-      <obj_property name="ObjectShortName">pad_required</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256">
-      <obj_property name="ElementShortName">message_in_sha256[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_valid">
-      <obj_property name="ElementShortName">message_in_sha256_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_last">
-      <obj_property name="ElementShortName">message_in_sha256_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_ready">
-      <obj_property name="ElementShortName">message_in_sha256_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_fifo">
-      <obj_property name="ElementShortName">message_in_sha256_fifo[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_fifo_valid">
-      <obj_property name="ElementShortName">message_in_sha256_fifo_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_fifo_last">
-      <obj_property name="ElementShortName">message_in_sha256_fifo_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_in_sha256_fifo_ready">
-      <obj_property name="ElementShortName">message_in_sha256_fifo_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/write_counter">
-      <obj_property name="ElementShortName">write_counter[61:0]</obj_property>
-      <obj_property name="ObjectShortName">write_counter[61:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_length">
-      <obj_property name="ElementShortName">message_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_length[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/message_length_words">
-      <obj_property name="ElementShortName">message_length_words[61:0]</obj_property>
-      <obj_property name="ObjectShortName">message_length_words[61:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/write_first_length">
-      <obj_property name="ElementShortName">write_first_length</obj_property>
-      <obj_property name="ObjectShortName">write_first_length</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/write_second_length">
-      <obj_property name="ElementShortName">write_second_length</obj_property>
-      <obj_property name="ObjectShortName">write_second_length</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/write_appended_byte">
-      <obj_property name="ElementShortName">write_appended_byte</obj_property>
-      <obj_property name="ObjectShortName">write_appended_byte</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/write_data">
-      <obj_property name="ElementShortName">write_data</obj_property>
-      <obj_property name="ObjectShortName">write_data</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/write_padding">
-      <obj_property name="ElementShortName">write_padding</obj_property>
-      <obj_property name="ObjectShortName">write_padding</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/wrapper_busy">
-      <obj_property name="ElementShortName">wrapper_busy</obj_property>
-      <obj_property name="ObjectShortName">wrapper_busy</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/lengths_ready">
-      <obj_property name="ElementShortName">lengths_ready</obj_property>
-      <obj_property name="ObjectShortName">lengths_ready</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/rstn">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/const_32">
-      <obj_property name="ElementShortName">const_32[63:0]</obj_property>
-      <obj_property name="ObjectShortName">const_32[63:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_valid_z">
-      <obj_property name="ElementShortName">hash_out_valid_z</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid_z</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_1/hash_out_valid_i">
-      <obj_property name="ElementShortName">hash_out_valid_i</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid_i</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_length">
-      <obj_property name="ElementShortName">key_in_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_length_valid">
-      <obj_property name="ElementShortName">key_in_length_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in">
-      <obj_property name="ElementShortName">key_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_valid">
-      <obj_property name="ElementShortName">key_in_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_last">
-      <obj_property name="ElementShortName">key_in_last</obj_property>
-      <obj_property name="ObjectShortName">key_in_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_ready">
-      <obj_property name="ElementShortName">key_in_ready</obj_property>
-      <obj_property name="ObjectShortName">key_in_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in_length">
-      <obj_property name="ElementShortName">message_in_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in_length_valid">
-      <obj_property name="ElementShortName">message_in_length_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in">
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in">
       <obj_property name="ElementShortName">message_in[31:0]</obj_property>
       <obj_property name="ObjectShortName">message_in[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in_valid">
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_max_nonce">
+      <obj_property name="ElementShortName">message_in_max_nonce[31:0]</obj_property>
+      <obj_property name="ObjectShortName">message_in_max_nonce[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_valid">
       <obj_property name="ElementShortName">message_in_valid</obj_property>
       <obj_property name="ObjectShortName">message_in_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in_last">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_last">
       <obj_property name="ElementShortName">message_in_last</obj_property>
       <obj_property name="ObjectShortName">message_in_last</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in_ready">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_ready">
       <obj_property name="ElementShortName">message_in_ready</obj_property>
       <obj_property name="ObjectShortName">message_in_ready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_length">
-      <obj_property name="ElementShortName">hash_out_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length[63:0]</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in">
+      <obj_property name="ElementShortName">target_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">target_in[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_length_valid">
-      <obj_property name="ElementShortName">hash_out_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length_valid</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in_valid">
+      <obj_property name="ElementShortName">target_in_valid</obj_property>
+      <obj_property name="ObjectShortName">target_in_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in_last">
+      <obj_property name="ElementShortName">target_in_last</obj_property>
+      <obj_property name="ObjectShortName">target_in_last</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in_ready">
+      <obj_property name="ElementShortName">target_in_ready</obj_property>
+      <obj_property name="ObjectShortName">target_in_ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/hash_out">
       <obj_property name="ElementShortName">hash_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">hash_out[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_valid">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/hash_out_valid">
       <obj_property name="ElementShortName">hash_out_valid</obj_property>
       <obj_property name="ObjectShortName">hash_out_valid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_last">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/hash_out_last">
       <obj_property name="ElementShortName">hash_out_last</obj_property>
       <obj_property name="ObjectShortName">hash_out_last</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_ready">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/hash_out_ready">
       <obj_property name="ElementShortName">hash_out_ready</obj_property>
       <obj_property name="ObjectShortName">hash_out_ready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/error_out">
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awid">
+      <obj_property name="ElementShortName">m_axi_awid[5:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awid[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awaddr">
+      <obj_property name="ElementShortName">m_axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awlen">
+      <obj_property name="ElementShortName">m_axi_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awsize">
+      <obj_property name="ElementShortName">m_axi_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awburst">
+      <obj_property name="ElementShortName">m_axi_awburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awlock">
+      <obj_property name="ElementShortName">m_axi_awlock[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awlock[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awcache">
+      <obj_property name="ElementShortName">m_axi_awcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awprot">
+      <obj_property name="ElementShortName">m_axi_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awqos">
+      <obj_property name="ElementShortName">m_axi_awqos[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awqos[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awregion">
+      <obj_property name="ElementShortName">m_axi_awregion[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awregion[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awvalid">
+      <obj_property name="ElementShortName">m_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_awready">
+      <obj_property name="ElementShortName">m_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_wdata">
+      <obj_property name="ElementShortName">m_axi_wdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_wdata[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_wstrb">
+      <obj_property name="ElementShortName">m_axi_wstrb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_wstrb[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_wlast">
+      <obj_property name="ElementShortName">m_axi_wlast</obj_property>
+      <obj_property name="ObjectShortName">m_axi_wlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_wvalid">
+      <obj_property name="ElementShortName">m_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_wready">
+      <obj_property name="ElementShortName">m_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_wready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_bid">
+      <obj_property name="ElementShortName">m_axi_bid[5:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_bid[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_bresp">
+      <obj_property name="ElementShortName">m_axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_bvalid">
+      <obj_property name="ElementShortName">m_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_bready">
+      <obj_property name="ElementShortName">m_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_bready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arid">
+      <obj_property name="ElementShortName">m_axi_arid[5:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arid[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_araddr">
+      <obj_property name="ElementShortName">m_axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arlen">
+      <obj_property name="ElementShortName">m_axi_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arsize">
+      <obj_property name="ElementShortName">m_axi_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arburst">
+      <obj_property name="ElementShortName">m_axi_arburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arlock">
+      <obj_property name="ElementShortName">m_axi_arlock[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arlock[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arcache">
+      <obj_property name="ElementShortName">m_axi_arcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arprot">
+      <obj_property name="ElementShortName">m_axi_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arqos">
+      <obj_property name="ElementShortName">m_axi_arqos[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arqos[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arregion">
+      <obj_property name="ElementShortName">m_axi_arregion[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arregion[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arvalid">
+      <obj_property name="ElementShortName">m_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_arready">
+      <obj_property name="ElementShortName">m_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_arready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rdata">
+      <obj_property name="ElementShortName">m_axi_rdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rdata[63:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rstrb">
+      <obj_property name="ElementShortName">m_axi_rstrb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rstrb[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rlast">
+      <obj_property name="ElementShortName">m_axi_rlast</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rready">
+      <obj_property name="ElementShortName">m_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rid">
+      <obj_property name="ElementShortName">m_axi_rid[5:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rid[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rresp">
+      <obj_property name="ElementShortName">m_axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/m_axi_rvalid">
+      <obj_property name="ElementShortName">m_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/error_out">
       <obj_property name="ElementShortName">error_out[3:0]</obj_property>
       <obj_property name="ObjectShortName">error_out[3:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_out_pad_length">
-      <obj_property name="ElementShortName">key_out_pad_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">key_out_pad_length[63:0]</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_out_count">
+      <obj_property name="ElementShortName">target_out_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">target_out_count[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_out_pad_length_valid">
-      <obj_property name="ElementShortName">key_out_pad_length_valid</obj_property>
-      <obj_property name="ObjectShortName">key_out_pad_length_valid</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_busy">
+      <obj_property name="ElementShortName">scrypt_busy</obj_property>
+      <obj_property name="ObjectShortName">scrypt_busy</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_out_pad">
-      <obj_property name="ElementShortName">key_out_pad[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_out_pad[31:0]</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/nonce_count">
+      <obj_property name="ElementShortName">nonce_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">nonce_count[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_out_pad_valid">
-      <obj_property name="ElementShortName">key_out_pad_valid</obj_property>
-      <obj_property name="ObjectShortName">key_out_pad_valid</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/nonce_max">
+      <obj_property name="ElementShortName">nonce_max[31:0]</obj_property>
+      <obj_property name="ObjectShortName">nonce_max[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_out_pad_last">
-      <obj_property name="ElementShortName">key_out_pad_last</obj_property>
-      <obj_property name="ObjectShortName">key_out_pad_last</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/nonce_last">
+      <obj_property name="ElementShortName">nonce_last</obj_property>
+      <obj_property name="ObjectShortName">nonce_last</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_out_pad_ready">
-      <obj_property name="ElementShortName">key_out_pad_ready</obj_property>
-      <obj_property name="ObjectShortName">key_out_pad_ready</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/next_message_write">
+      <obj_property name="ElementShortName">next_message_write</obj_property>
+      <obj_property name="ObjectShortName">next_message_write</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/error_out_pad">
-      <obj_property name="ElementShortName">error_out_pad[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out_pad[3:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/next_message_valid">
+      <obj_property name="ElementShortName">next_message_valid</obj_property>
+      <obj_property name="ObjectShortName">next_message_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_short_length">
-      <obj_property name="ElementShortName">hash_out_short_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_short_length[63:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/next_message_last">
+      <obj_property name="ElementShortName">next_message_last</obj_property>
+      <obj_property name="ObjectShortName">next_message_last</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_short_length_valid">
-      <obj_property name="ElementShortName">hash_out_short_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_short_length_valid</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/next_message_addr">
+      <obj_property name="ElementShortName">next_message_addr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">next_message_addr[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_short">
-      <obj_property name="ElementShortName">hash_out_short[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_short[31:0]</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/next_message">
+      <obj_property name="ElementShortName">next_message[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_message[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_short_valid">
-      <obj_property name="ElementShortName">hash_out_short_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_short_valid</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_count">
+      <obj_property name="ElementShortName">message_in_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">message_in_count[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_short_last">
-      <obj_property name="ElementShortName">hash_out_short_last</obj_property>
-      <obj_property name="ObjectShortName">hash_out_short_last</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in_count">
+      <obj_property name="ElementShortName">target_in_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">target_in_count[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_short_ready">
-      <obj_property name="ElementShortName">hash_out_short_ready</obj_property>
-      <obj_property name="ObjectShortName">hash_out_short_ready</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_message_in">
+      <obj_property name="ElementShortName">scrypt_message_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">scrypt_message_in[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/error_out_short">
-      <obj_property name="ElementShortName">error_out_short[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out_short[3:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_message_in_valid">
+      <obj_property name="ElementShortName">scrypt_message_in_valid</obj_property>
+      <obj_property name="ObjectShortName">scrypt_message_in_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_inner_length">
-      <obj_property name="ElementShortName">key_in_inner_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_inner_length[63:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_message_in_last">
+      <obj_property name="ElementShortName">scrypt_message_in_last</obj_property>
+      <obj_property name="ObjectShortName">scrypt_message_in_last</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_inner_length_valid">
-      <obj_property name="ElementShortName">key_in_inner_length_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_inner_length_valid</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_message_in_ready">
+      <obj_property name="ElementShortName">scrypt_message_in_ready</obj_property>
+      <obj_property name="ObjectShortName">scrypt_message_in_ready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_inner">
-      <obj_property name="ElementShortName">key_in_inner[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_inner[31:0]</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_hash_out">
+      <obj_property name="ElementShortName">scrypt_hash_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">scrypt_hash_out[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_inner_valid">
-      <obj_property name="ElementShortName">key_in_inner_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_inner_valid</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_hash_out_z">
+      <obj_property name="ElementShortName">scrypt_hash_out_z[31:0]</obj_property>
+      <obj_property name="ObjectShortName">scrypt_hash_out_z[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_inner_last">
-      <obj_property name="ElementShortName">key_in_inner_last</obj_property>
-      <obj_property name="ObjectShortName">key_in_inner_last</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_out">
+      <obj_property name="ElementShortName">target_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">target_out[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_inner_ready">
-      <obj_property name="ElementShortName">key_in_inner_ready</obj_property>
-      <obj_property name="ObjectShortName">key_in_inner_ready</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_hash_out_valid">
+      <obj_property name="ElementShortName">scrypt_hash_out_valid</obj_property>
+      <obj_property name="ObjectShortName">scrypt_hash_out_valid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_outer_length">
-      <obj_property name="ElementShortName">key_in_outer_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_outer_length[63:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_hash_out_valid_z">
+      <obj_property name="ElementShortName">scrypt_hash_out_valid_z</obj_property>
+      <obj_property name="ObjectShortName">scrypt_hash_out_valid_z</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_outer_length_valid">
-      <obj_property name="ElementShortName">key_in_outer_length_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_outer_length_valid</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_hash_out_last">
+      <obj_property name="ElementShortName">scrypt_hash_out_last</obj_property>
+      <obj_property name="ObjectShortName">scrypt_hash_out_last</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_outer">
-      <obj_property name="ElementShortName">key_in_outer[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_in_outer[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/scrypt_hash_out_ready">
+      <obj_property name="ElementShortName">scrypt_hash_out_ready</obj_property>
+      <obj_property name="ObjectShortName">scrypt_hash_out_ready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_outer_valid">
-      <obj_property name="ElementShortName">key_in_outer_valid</obj_property>
-      <obj_property name="ObjectShortName">key_in_outer_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_outer_last">
-      <obj_property name="ElementShortName">key_in_outer_last</obj_property>
-      <obj_property name="ObjectShortName">key_in_outer_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_outer_ready">
-      <obj_property name="ElementShortName">key_in_outer_ready</obj_property>
-      <obj_property name="ObjectShortName">key_in_outer_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_inner_length">
-      <obj_property name="ElementShortName">hash_out_inner_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_inner_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_inner_length_valid">
-      <obj_property name="ElementShortName">hash_out_inner_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_inner_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_inner">
-      <obj_property name="ElementShortName">hash_out_inner[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_inner[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_inner_valid">
-      <obj_property name="ElementShortName">hash_out_inner_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_inner_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_inner_last">
-      <obj_property name="ElementShortName">hash_out_inner_last</obj_property>
-      <obj_property name="ObjectShortName">hash_out_inner_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_inner_ready">
-      <obj_property name="ElementShortName">hash_out_inner_ready</obj_property>
-      <obj_property name="ObjectShortName">hash_out_inner_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_outer_length">
-      <obj_property name="ElementShortName">hash_out_outer_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_outer_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_outer_length_valid">
-      <obj_property name="ElementShortName">hash_out_outer_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_outer_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_outer">
-      <obj_property name="ElementShortName">hash_out_outer[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_outer[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_outer_valid">
-      <obj_property name="ElementShortName">hash_out_outer_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_outer_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_outer_last">
-      <obj_property name="ElementShortName">hash_out_outer_last</obj_property>
-      <obj_property name="ObjectShortName">hash_out_outer_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hash_out_outer_ready">
-      <obj_property name="ElementShortName">hash_out_outer_ready</obj_property>
-      <obj_property name="ObjectShortName">hash_out_outer_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/error_out_inner">
-      <obj_property name="ElementShortName">error_out_inner[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out_inner[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/error_out_outer">
-      <obj_property name="ElementShortName">error_out_outer[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out_outer[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/inner_counter">
-      <obj_property name="ElementShortName">inner_counter[63:0]</obj_property>
-      <obj_property name="ObjectShortName">inner_counter[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_length">
-      <obj_property name="ElementShortName">message_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_length_valid">
-      <obj_property name="ElementShortName">message_length_valid</obj_property>
-      <obj_property name="ObjectShortName">message_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/inner_length">
-      <obj_property name="ElementShortName">inner_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">inner_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/inner_length_valid">
-      <obj_property name="ElementShortName">inner_length_valid</obj_property>
-      <obj_property name="ObjectShortName">inner_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/outer_length">
-      <obj_property name="ElementShortName">outer_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">outer_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/message_in_ready_i">
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_ready_i">
       <obj_property name="ElementShortName">message_in_ready_i</obj_property>
       <obj_property name="ObjectShortName">message_in_ready_i</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/rstn">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/message_in_wea">
+      <obj_property name="ElementShortName">message_in_wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">message_in_wea[0:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_in_valid">
-      <obj_property name="ElementShortName">key_fifo_in_valid</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_in_valid</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in_ready_i">
+      <obj_property name="ElementShortName">target_in_ready_i</obj_property>
+      <obj_property name="ObjectShortName">target_in_ready_i</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_in_ready">
-      <obj_property name="ElementShortName">key_fifo_in_ready</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_in_ready</obj_property>
+   <wvobject type="array" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/target_in_wea">
+      <obj_property name="ElementShortName">target_in_wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">target_in_wea[0:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_in_data">
-      <obj_property name="ElementShortName">key_fifo_in_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_in_data[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/below_target">
+      <obj_property name="ElementShortName">below_target</obj_property>
+      <obj_property name="ObjectShortName">below_target</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_in_last">
-      <obj_property name="ElementShortName">key_fifo_in_last</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_in_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_out_ready_i">
-      <obj_property name="ElementShortName">key_fifo_out_ready_i</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_out_ready_i</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_out_valid">
-      <obj_property name="ElementShortName">key_fifo_out_valid</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_out_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_out_ready">
-      <obj_property name="ElementShortName">key_fifo_out_ready</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_out_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_out_data">
-      <obj_property name="ElementShortName">key_fifo_out_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_out_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_fifo_out_last">
-      <obj_property name="ElementShortName">key_fifo_out_last</obj_property>
-      <obj_property name="ObjectShortName">key_fifo_out_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_ready_i">
-      <obj_property name="ElementShortName">key_in_ready_i</obj_property>
-      <obj_property name="ObjectShortName">key_in_ready_i</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/key_in_ready_shorten">
-      <obj_property name="ElementShortName">key_in_ready_shorten</obj_property>
-      <obj_property name="ObjectShortName">key_in_ready_shorten</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/hmac_busy">
-      <obj_property name="ElementShortName">hmac_busy</obj_property>
-      <obj_property name="ObjectShortName">hmac_busy</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/outer_key_pad">
-      <obj_property name="ElementShortName">outer_key_pad[31:0]</obj_property>
-      <obj_property name="ObjectShortName">outer_key_pad[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/inner_key_pad">
-      <obj_property name="ElementShortName">inner_key_pad[31:0]</obj_property>
-      <obj_property name="ObjectShortName">inner_key_pad[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_length">
-      <obj_property name="ElementShortName">message_in_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_length_valid">
-      <obj_property name="ElementShortName">message_in_length_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in">
-      <obj_property name="ElementShortName">message_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_valid">
-      <obj_property name="ElementShortName">message_in_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_last">
-      <obj_property name="ElementShortName">message_in_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_ready">
-      <obj_property name="ElementShortName">message_in_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_length">
-      <obj_property name="ElementShortName">hash_out_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_length_valid">
-      <obj_property name="ElementShortName">hash_out_length_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_length_valid</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out">
-      <obj_property name="ElementShortName">hash_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hash_out[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_valid">
-      <obj_property name="ElementShortName">hash_out_valid</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_last">
-      <obj_property name="ElementShortName">hash_out_last</obj_property>
-      <obj_property name="ObjectShortName">hash_out_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_ready">
-      <obj_property name="ElementShortName">hash_out_ready</obj_property>
-      <obj_property name="ObjectShortName">hash_out_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/error_out">
-      <obj_property name="ElementShortName">error_out[3:0]</obj_property>
-      <obj_property name="ObjectShortName">error_out[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/length_total_bytes">
-      <obj_property name="ElementShortName">length_total_bytes[63:0]</obj_property>
-      <obj_property name="ObjectShortName">length_total_bytes[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/length_total_words_padded">
-      <obj_property name="ElementShortName">length_total_words_padded[61:0]</obj_property>
-      <obj_property name="ObjectShortName">length_total_words_padded[61:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/length_total_blocks">
-      <obj_property name="ElementShortName">length_total_blocks[57:0]</obj_property>
-      <obj_property name="ObjectShortName">length_total_blocks[57:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/append_byte_position">
-      <obj_property name="ElementShortName">append_byte_position[1:0]</obj_property>
-      <obj_property name="ObjectShortName">append_byte_position[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/append_byte_word">
-      <obj_property name="ElementShortName">append_byte_word[31:0]</obj_property>
-      <obj_property name="ObjectShortName">append_byte_word[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/append_length_word1">
-      <obj_property name="ElementShortName">append_length_word1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">append_length_word1[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/append_length_word2">
-      <obj_property name="ElementShortName">append_length_word2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">append_length_word2[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/pad_enable">
-      <obj_property name="ElementShortName">pad_enable</obj_property>
-      <obj_property name="ObjectShortName">pad_enable</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/pad_required">
-      <obj_property name="ElementShortName">pad_required</obj_property>
-      <obj_property name="ObjectShortName">pad_required</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256">
-      <obj_property name="ElementShortName">message_in_sha256[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_valid">
-      <obj_property name="ElementShortName">message_in_sha256_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_last">
-      <obj_property name="ElementShortName">message_in_sha256_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_ready">
-      <obj_property name="ElementShortName">message_in_sha256_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_fifo">
-      <obj_property name="ElementShortName">message_in_sha256_fifo[31:0]</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_fifo_valid">
-      <obj_property name="ElementShortName">message_in_sha256_fifo_valid</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo_valid</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_fifo_last">
-      <obj_property name="ElementShortName">message_in_sha256_fifo_last</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo_last</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_in_sha256_fifo_ready">
-      <obj_property name="ElementShortName">message_in_sha256_fifo_ready</obj_property>
-      <obj_property name="ObjectShortName">message_in_sha256_fifo_ready</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/write_counter">
-      <obj_property name="ElementShortName">write_counter[61:0]</obj_property>
-      <obj_property name="ObjectShortName">write_counter[61:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_length">
-      <obj_property name="ElementShortName">message_length[63:0]</obj_property>
-      <obj_property name="ObjectShortName">message_length[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/message_length_words">
-      <obj_property name="ElementShortName">message_length_words[61:0]</obj_property>
-      <obj_property name="ObjectShortName">message_length_words[61:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/write_first_length">
-      <obj_property name="ElementShortName">write_first_length</obj_property>
-      <obj_property name="ObjectShortName">write_first_length</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/write_second_length">
-      <obj_property name="ElementShortName">write_second_length</obj_property>
-      <obj_property name="ObjectShortName">write_second_length</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/write_appended_byte">
-      <obj_property name="ElementShortName">write_appended_byte</obj_property>
-      <obj_property name="ObjectShortName">write_appended_byte</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/write_data">
-      <obj_property name="ElementShortName">write_data</obj_property>
-      <obj_property name="ObjectShortName">write_data</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/write_padding">
-      <obj_property name="ElementShortName">write_padding</obj_property>
-      <obj_property name="ObjectShortName">write_padding</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/wrapper_busy">
-      <obj_property name="ElementShortName">wrapper_busy</obj_property>
-      <obj_property name="ObjectShortName">wrapper_busy</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/lengths_ready">
-      <obj_property name="ElementShortName">lengths_ready</obj_property>
-      <obj_property name="ObjectShortName">lengths_ready</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/rstn">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/const_32">
-      <obj_property name="ElementShortName">const_32[63:0]</obj_property>
-      <obj_property name="ObjectShortName">const_32[63:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_valid_z">
-      <obj_property name="ElementShortName">hash_out_valid_z</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid_z</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/hmac_sha256_tb/hmac_sha256_2/sha256_wrapper_2/hash_out_valid_i">
-      <obj_property name="ElementShortName">hash_out_valid_i</obj_property>
-      <obj_property name="ObjectShortName">hash_out_valid_i</obj_property>
+   <wvobject type="other" fp_name="/scrypt_wrapper_tb/scrypt_wrapper_1/N_DIFFICULTY_LOG2">
+      <obj_property name="ElementShortName">N_DIFFICULTY_LOG2</obj_property>
+      <obj_property name="ObjectShortName">N_DIFFICULTY_LOG2</obj_property>
    </wvobject>
 </wave_config>

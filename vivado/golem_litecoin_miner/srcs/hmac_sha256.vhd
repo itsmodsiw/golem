@@ -258,6 +258,11 @@ begin
 
         end if;
 
+        if (hash_out_outer_valid = '1' and hash_out_outer_last = '1' and hash_out_ready = '1') then
+          key_in_ready_i <= '1';
+          hmac_busy <= '0';
+        end if;
+
       end if;
     end if;
   end process;
@@ -340,7 +345,7 @@ begin
   key_in_inner_length_valid <= inner_length_valid;
 
   key_in_inner       <= (key_out_pad xor inner_key_pad) when key_out_pad_valid = '1' else message_in;
-  key_in_inner_valid <= key_out_pad_valid or message_in_valid;
+  key_in_inner_valid <= (key_out_pad_valid and key_out_pad_ready) or (message_in_valid and message_in_ready_i);
   key_in_inner_last  <= message_in_last;
 
   hash_out_inner_ready <= '1';
@@ -379,7 +384,7 @@ begin
       s_aclk        => clk,
       s_aresetn     => rstn,
       s_axis_tvalid => key_fifo_in_valid,
-      s_axis_tready => open,
+      s_axis_tready => key_fifo_in_ready,
       s_axis_tdata  => key_fifo_in_data,
       s_axis_tlast  => key_fifo_in_last,
       m_axis_tvalid => key_fifo_out_valid,

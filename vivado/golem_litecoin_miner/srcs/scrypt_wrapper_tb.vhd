@@ -24,71 +24,72 @@ library work;
 use work.common.all;
 
 
-entity rom_mix_tb is
-end rom_mix_tb;
+entity scrypt_wrapper_tb is
+end scrypt_wrapper_tb;
 
-architecture behavioral of rom_mix_tb is
+architecture behavioral of scrypt_wrapper_tb is
 
   constant N_DIFFICULTY_LOG2 : integer := 4;
-
-  component rom_mix is
+  component scrypt_wrapper is
     generic (
       N_DIFFICULTY_LOG2 : integer);
     port (
-      clk                   : in  std_logic;
-      rst                   : in  std_logic;
-      block_array_in        : in  std_logic_vector(31 downto 0);
-      block_array_in_valid  : in  std_logic;
-      block_array_in_last   : in  std_logic;
-      block_array_in_ready  : out std_logic;
-      block_array_out       : out std_logic_vector(31 downto 0);
-      block_array_out_valid : out std_logic;
-      block_array_out_last  : out std_logic;
-      block_array_out_ready : in  std_logic;
-      m_axi_awid            : out std_logic_vector(5 downto 0);
-      m_axi_awaddr          : out std_logic_vector(31 downto 0);
-      m_axi_awlen           : out std_logic_vector(7 downto 0);
-      m_axi_awsize          : out std_logic_vector(2 downto 0);
-      m_axi_awburst         : out std_logic_vector(1 downto 0);
-      m_axi_awlock          : out std_logic_vector(0 downto 0);
-      m_axi_awcache         : out std_logic_vector(3 downto 0);
-      m_axi_awprot          : out std_logic_vector(2 downto 0);
-      m_axi_awqos           : out std_logic_vector(3 downto 0);
-      m_axi_awregion        : out std_logic_vector(3 downto 0);
-      m_axi_awvalid         : out std_logic;
-      m_axi_awready         : in  std_logic;
-      m_axi_wdata           : out std_logic_vector(63 downto 0);
-      m_axi_wstrb           : out std_logic_vector(7 downto 0);
-      m_axi_wlast           : out std_logic;
-      m_axi_wvalid          : out std_logic;
-      m_axi_wready          : in  std_logic;
-      m_axi_bid             : in  std_logic_vector(5 downto 0);
-      m_axi_bresp           : in  std_logic_vector(1 downto 0);
-      m_axi_bvalid          : in  std_logic;
-      m_axi_bready          : out std_logic;
-      m_axi_arid            : out std_logic_vector(5 downto 0);
-      m_axi_araddr          : out std_logic_vector(31 downto 0);
-      m_axi_arlen           : out std_logic_vector(7 downto 0);
-      m_axi_arsize          : out std_logic_vector(2 downto 0);
-      m_axi_arburst         : out std_logic_vector(1 downto 0);
-      m_axi_arlock          : out std_logic_vector(0 downto 0);
-      m_axi_arcache         : out std_logic_vector(3 downto 0);
-      m_axi_arprot          : out std_logic_vector(2 downto 0);
-      m_axi_arqos           : out std_logic_vector(3 downto 0);
-      m_axi_arregion        : out std_logic_vector(3 downto 0);
-      m_axi_arvalid         : out std_logic;
-      m_axi_arready         : in  std_logic;
-      m_axi_rdata           : in  std_logic_vector(63 downto 0);
-      m_axi_rstrb           : in  std_logic_vector(7 downto 0);
-      m_axi_rlast           : in  std_logic;
-      m_axi_rready          : out std_logic;
-      m_axi_rid             : in  std_logic_vector(5 downto 0);
-      m_axi_rresp           : in  std_logic_vector(1 downto 0);
-      m_axi_rvalid          : in  std_logic;
-      errors_1              : out std_logic_vector(15 downto 0);
-      errors_2              : out std_logic_vector(15 downto 0));
-  end component rom_mix;
-
+      clk                  : in  std_logic;
+      rst                  : in  std_logic;
+      message_in           : in  std_logic_vector(31 downto 0);
+      message_in_max_nonce : in  std_logic_vector(31 downto 0);
+      message_in_valid     : in  std_logic;
+      message_in_last      : in  std_logic;
+      message_in_ready     : out std_logic;
+      target_in            : in  std_logic_vector(31 downto 0);
+      target_in_valid      : in  std_logic;
+      target_in_last       : in  std_logic;
+      target_in_ready      : out std_logic;
+      hash_out             : out std_logic_vector(31 downto 0);
+      hash_out_valid       : out std_logic;
+      hash_out_last        : out std_logic;
+      hash_out_ready       : in  std_logic;
+      m_axi_awid           : out std_logic_vector(5 downto 0);
+      m_axi_awaddr         : out std_logic_vector(31 downto 0);
+      m_axi_awlen          : out std_logic_vector(7 downto 0);
+      m_axi_awsize         : out std_logic_vector(2 downto 0);
+      m_axi_awburst        : out std_logic_vector(1 downto 0);
+      m_axi_awlock         : out std_logic_vector(0 downto 0);
+      m_axi_awcache        : out std_logic_vector(3 downto 0);
+      m_axi_awprot         : out std_logic_vector(2 downto 0);
+      m_axi_awqos          : out std_logic_vector(3 downto 0);
+      m_axi_awregion       : out std_logic_vector(3 downto 0);
+      m_axi_awvalid        : out std_logic;
+      m_axi_awready        : in  std_logic;
+      m_axi_wdata          : out std_logic_vector(63 downto 0);
+      m_axi_wstrb          : out std_logic_vector(7 downto 0);
+      m_axi_wlast          : out std_logic;
+      m_axi_wvalid         : out std_logic;
+      m_axi_wready         : in  std_logic;
+      m_axi_bid            : in  std_logic_vector(5 downto 0);
+      m_axi_bresp          : in  std_logic_vector(1 downto 0);
+      m_axi_bvalid         : in  std_logic;
+      m_axi_bready         : out std_logic;
+      m_axi_arid           : out std_logic_vector(5 downto 0);
+      m_axi_araddr         : out std_logic_vector(31 downto 0);
+      m_axi_arlen          : out std_logic_vector(7 downto 0);
+      m_axi_arsize         : out std_logic_vector(2 downto 0);
+      m_axi_arburst        : out std_logic_vector(1 downto 0);
+      m_axi_arlock         : out std_logic_vector(0 downto 0);
+      m_axi_arcache        : out std_logic_vector(3 downto 0);
+      m_axi_arprot         : out std_logic_vector(2 downto 0);
+      m_axi_arqos          : out std_logic_vector(3 downto 0);
+      m_axi_arregion       : out std_logic_vector(3 downto 0);
+      m_axi_arvalid        : out std_logic;
+      m_axi_arready        : in  std_logic;
+      m_axi_rdata          : in  std_logic_vector(63 downto 0);
+      m_axi_rlast          : in  std_logic;
+      m_axi_rready         : out std_logic;
+      m_axi_rid            : in  std_logic_vector(5 downto 0);
+      m_axi_rresp          : in  std_logic_vector(1 downto 0);
+      m_axi_rvalid         : in  std_logic;
+      error_out            : out std_logic_vector(3 downto 0));
+  end component scrypt_wrapper;
 
   component sdram_mem is
     port (
@@ -136,19 +137,28 @@ architecture behavioral of rom_mix_tb is
   signal errors_stage1 : std_logic_vector(15 downto 0);
   signal errors_stage2 : std_logic_vector(15 downto 0);
 
-  constant C_BLOCK_LENGTH : integer               := 32;
-  constant START_COUNT       : unsigned(31 downto 0) := to_unsigned(100, 32);
+  constant C_BLOCK_LENGTH : integer               := 20;
+  constant C_TARGET_LENGTH : integer              := 8;
+  constant START_COUNT    : unsigned(31 downto 0) := to_unsigned(100, 32);
 
   signal block_in_counter : unsigned(31 downto 0);
+  signal target_in_counter   : unsigned(31 downto 0);
   signal start_counter    : unsigned(31 downto 0);
 
   signal block_in_busy : std_logic;
+  signal target_in_busy : std_logic;
+  signal target_out_ready : std_logic;
 
   signal block_array_in        : block_array;
   signal block_array_in_4B     : std_logic_vector(31 downto 0);
   signal block_array_in_valid  : std_logic := '0';
   signal block_array_in_ready  : std_logic;
   signal block_array_in_last   : std_logic;
+  signal target_in             : block_array;
+  signal target_in_4B          : std_logic_vector(31 downto 0);
+  signal target_in_valid       : std_logic := '0';
+  signal target_in_ready       : std_logic;
+  signal target_in_last        : std_logic;
   signal block_array_out       : block_array;
   signal block_array_out_4B    : std_logic_vector(31 downto 0);
   signal block_array_out_valid : std_logic;
@@ -182,7 +192,6 @@ architecture behavioral of rom_mix_tb is
   signal m_axi_arvalid  : std_logic;
   signal m_axi_arready  : std_logic;
   signal m_axi_rdata    : std_logic_vector(63 downto 0);
-  signal m_axi_rstrb    : std_logic_vector(7 downto 0);
   signal m_axi_rlast    : std_logic;
   signal m_axi_rready   : std_logic;
   signal m_axi_rid      : std_logic_vector(5 downto 0);
@@ -211,6 +220,9 @@ architecture behavioral of rom_mix_tb is
   signal m_axi_bvalid   : std_logic;
   signal m_axi_bready   : std_logic;
 
+  signal max_nonce : std_logic_vector(31 downto 0);
+
+
 begin
 
   -- generate clk/rst
@@ -233,39 +245,47 @@ begin
 
   rstn <= not rst;
 
+  target_in(0)  <= X"ff000041";
+  target_in(1)  <= X"00000042";
+  target_in(2)  <= X"00000043";
+  target_in(3)  <= X"00000044";
+  target_in(4)  <= X"00000045";
+  target_in(5)  <= X"00000046";
+  target_in(6)  <= X"00000047";
+  target_in(7)  <= X"00000048";
+  target_in(8)  <= X"00000049";
+  target_in(9)  <= X"0000004A";
+  target_in(10) <= X"0000004B";
+  target_in(11) <= X"0000004C";
+  target_in(12) <= X"0000004D";
+  target_in(13) <= X"0000004E";
+  target_in(14) <= X"0000004F";
+  target_in(15) <= X"00000050";
+  target_in(16) <= X"00000051";
+  target_in(17) <= X"00000052";
+  target_in(18) <= X"00000053";
+  target_in(19) <= X"00000018";
 
-  block_array_in(0)  <= X"00000000";
-  block_array_in(1)  <= X"00000001";
-  block_array_in(2)  <= X"00000002";
-  block_array_in(3)  <= X"00000003";
-  block_array_in(4)  <= X"00000004";
-  block_array_in(5)  <= X"00000005";
-  block_array_in(6)  <= X"00000006";
-  block_array_in(7)  <= X"00000007";
-  block_array_in(8)  <= X"00000008";
-  block_array_in(9)  <= X"00000009";
-  block_array_in(10) <= X"0000000a";
-  block_array_in(11) <= X"0000000b";
-  block_array_in(12) <= X"0000000c";
-  block_array_in(13) <= X"0000000d";
-  block_array_in(14) <= X"0000000e";
-  block_array_in(15) <= X"0000000f";
-  block_array_in(16) <= X"00000010";
-  block_array_in(17) <= X"00000011";
-  block_array_in(18) <= X"00000012";
-  block_array_in(19) <= X"00000013";
-  block_array_in(20) <= X"00000014";
-  block_array_in(21) <= X"00000015";
-  block_array_in(22) <= X"00000016";
-  block_array_in(23) <= X"00000017";
-  block_array_in(24) <= X"00000018";
-  block_array_in(25) <= X"00000019";
-  block_array_in(26) <= X"0000001a";
-  block_array_in(27) <= X"0000001b";
-  block_array_in(28) <= X"0000001c";
-  block_array_in(29) <= X"0000001d";
-  block_array_in(30) <= X"0000001e";
-  block_array_in(31) <= X"0000001f";
+  block_array_in(0)  <= X"00000041";
+  block_array_in(1)  <= X"00000042";
+  block_array_in(2)  <= X"00000043";
+  block_array_in(3)  <= X"00000044";
+  block_array_in(4)  <= X"00000045";
+  block_array_in(5)  <= X"00000046";
+  block_array_in(6)  <= X"00000047";
+  block_array_in(7)  <= X"00000048";
+  block_array_in(8)  <= X"00000049";
+  block_array_in(9)  <= X"0000004A";
+  block_array_in(10) <= X"0000004B";
+  block_array_in(11) <= X"0000004C";
+  block_array_in(12) <= X"0000004D";
+  block_array_in(13) <= X"0000004E";
+  block_array_in(14) <= X"0000004F";
+  block_array_in(15) <= X"00000050";
+  block_array_in(16) <= X"00000051";
+  block_array_in(17) <= X"00000052";
+  block_array_in(18) <= X"00000053";
+  block_array_in(19) <= X"00000018";
 
 
 
@@ -273,12 +293,16 @@ begin
   begin
     if (rising_edge(clk)) then
       if (rst = '1') then
-        start_counter     <= (others => '0');
+        start_counter <= (others => '0');
 
         block_array_in_valid <= '0';
+        target_in_valid <= '0';
 
-        block_in_busy <= '0';
-        block_in_counter     <= (others => '0');
+        block_in_busy    <= '0';
+        block_in_counter <= (others => '0');
+
+        target_in_busy    <= '0';
+        target_in_counter <= (others => '0');
 
       else
 
@@ -287,7 +311,9 @@ begin
             start_counter <= start_counter + 1;
           else
             block_in_busy        <= '1';
+            target_in_busy        <= '1';
             block_array_in_valid <= '1';
+            target_in_valid <= '1';
             start_counter        <= (others => '0');
 
           end if;
@@ -300,6 +326,18 @@ begin
           else
             block_in_counter     <= (others => '0');
             block_array_in_valid <= '0';
+
+          end if;
+
+        end if;
+
+        if (target_in_busy = '1' and target_in_ready = '1') then
+          if (target_in_counter < to_unsigned(C_TARGET_LENGTH-1, 32)) then
+            target_in_counter <= target_in_counter + 1;
+
+          else
+            target_in_counter     <= (others => '0');
+            target_in_valid <= '0';
 
           end if;
 
@@ -323,66 +361,77 @@ begin
 
   end generate block_in_gen;
 
-  block_array_out_ready <= '1';
 
-  -- uut
-  rom_mix_1 : rom_mix
+  target_in_last <= '1' when target_in_counter = to_unsigned(C_TARGET_LENGTH-1, 32) else '0';
+
+  target_in_gen : for i in 0 to C_TARGET_LENGTH-1 generate
+    target_in_4B <= target_in(i) when (target_in_counter = i) else (others => 'Z');
+
+  end generate target_in_gen;
+
+  target_out_ready <= '1';
+
+  max_nonce <= X"00000020";
+
+  scrypt_wrapper_1 : scrypt_wrapper
     generic map (
       N_DIFFICULTY_LOG2 => N_DIFFICULTY_LOG2)
     port map (
-      clk                   => clk,
-      rst                   => rst,
-      block_array_in        => block_array_in_4B,
-      block_array_in_valid  => block_array_in_valid,
-      block_array_in_ready  => block_array_in_ready,
-      block_array_in_last   => block_array_in_last,
-      block_array_out       => block_array_out_4B,
-      block_array_out_valid => block_array_out_valid,
-      block_array_out_last  => block_array_out_last,
-      block_array_out_ready => block_array_out_ready,
-      m_axi_awid            => m_axi_awid,
-      m_axi_awaddr          => m_axi_awaddr,
-      m_axi_awlen           => m_axi_awlen,
-      m_axi_awsize          => m_axi_awsize,
-      m_axi_awburst         => m_axi_awburst,
-      m_axi_awlock          => m_axi_awlock,
-      m_axi_awcache         => m_axi_awcache,
-      m_axi_awprot          => m_axi_awprot,
-      m_axi_awqos           => m_axi_awqos,
-      m_axi_awregion        => m_axi_awregion,
-      m_axi_awvalid         => m_axi_awvalid,
-      m_axi_awready         => m_axi_awready,
-      m_axi_wdata           => m_axi_wdata,
-      m_axi_wstrb           => m_axi_wstrb,
-      m_axi_wlast           => m_axi_wlast,
-      m_axi_wvalid          => m_axi_wvalid,
-      m_axi_wready          => m_axi_wready,
-      m_axi_bid             => m_axi_bid,
-      m_axi_bresp           => m_axi_bresp,
-      m_axi_bvalid          => m_axi_bvalid,
-      m_axi_bready          => m_axi_bready,
-      m_axi_arid            => m_axi_arid,
-      m_axi_araddr          => m_axi_araddr,
-      m_axi_arlen           => m_axi_arlen,
-      m_axi_arsize          => m_axi_arsize,
-      m_axi_arburst         => m_axi_arburst,
-      m_axi_arlock          => m_axi_arlock,
-      m_axi_arcache         => m_axi_arcache,
-      m_axi_arprot          => m_axi_arprot,
-      m_axi_arqos           => m_axi_arqos,
-      m_axi_arregion        => m_axi_arregion,
-      m_axi_arvalid         => m_axi_arvalid,
-      m_axi_arready         => m_axi_arready,
-      m_axi_rdata           => m_axi_rdata,
-      m_axi_rstrb           => m_axi_rstrb,
-      m_axi_rlast           => m_axi_rlast,
-      m_axi_rready          => m_axi_rready,
-      m_axi_rid             => m_axi_rid,
-      m_axi_rresp           => m_axi_rresp,
-      m_axi_rvalid          => m_axi_rvalid,
-      errors_1              => open,
-      errors_2              => open);
-
+      clk                  => clk,
+      rst                  => rst,
+      message_in           => block_array_in_4B,
+      message_in_valid     => block_array_in_valid,
+      message_in_last      => block_array_in_last,
+      message_in_ready     => block_array_in_ready,
+      message_in_max_nonce => max_nonce,
+      target_in            => target_in_4B,
+      target_in_valid      => target_in_valid,
+      target_in_last       => target_in_last,
+      target_in_ready      => target_in_ready,
+      hash_out             => block_array_out_4B,
+      hash_out_valid       => block_array_out_valid,
+      hash_out_last        => block_array_out_last,
+      hash_out_ready       => block_array_out_ready,
+      m_axi_awid           => m_axi_awid,
+      m_axi_awaddr         => m_axi_awaddr,
+      m_axi_awlen          => m_axi_awlen,
+      m_axi_awsize         => m_axi_awsize,
+      m_axi_awburst        => m_axi_awburst,
+      m_axi_awlock         => m_axi_awlock,
+      m_axi_awcache        => m_axi_awcache,
+      m_axi_awprot         => m_axi_awprot,
+      m_axi_awqos          => m_axi_awqos,
+      m_axi_awregion       => m_axi_awregion,
+      m_axi_awvalid        => m_axi_awvalid,
+      m_axi_awready        => m_axi_awready,
+      m_axi_wdata          => m_axi_wdata,
+      m_axi_wstrb          => m_axi_wstrb,
+      m_axi_wlast          => m_axi_wlast,
+      m_axi_wvalid         => m_axi_wvalid,
+      m_axi_wready         => m_axi_wready,
+      m_axi_bid            => m_axi_bid,
+      m_axi_bresp          => m_axi_bresp,
+      m_axi_bvalid         => m_axi_bvalid,
+      m_axi_bready         => m_axi_bready,
+      m_axi_arid           => m_axi_arid,
+      m_axi_araddr         => m_axi_araddr,
+      m_axi_arlen          => m_axi_arlen,
+      m_axi_arsize         => m_axi_arsize,
+      m_axi_arburst        => m_axi_arburst,
+      m_axi_arlock         => m_axi_arlock,
+      m_axi_arcache        => m_axi_arcache,
+      m_axi_arprot         => m_axi_arprot,
+      m_axi_arqos          => m_axi_arqos,
+      m_axi_arregion       => m_axi_arregion,
+      m_axi_arvalid        => m_axi_arvalid,
+      m_axi_arready        => m_axi_arready,
+      m_axi_rdata          => m_axi_rdata,
+      m_axi_rlast          => m_axi_rlast,
+      m_axi_rready         => m_axi_rready,
+      m_axi_rid            => m_axi_rid,
+      m_axi_rresp          => m_axi_rresp,
+      m_axi_rvalid         => m_axi_rvalid,
+      error_out            => open);
 
   -- check block_array out.
   block_array_expected(0)  <= X"02D607D2";
